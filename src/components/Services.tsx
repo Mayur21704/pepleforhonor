@@ -1,6 +1,7 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Briefcase, Users, Target, Heart, ArrowRight } from "lucide-react";
+import { Drawer, DrawerContent, DrawerDescription, DrawerHeader, DrawerTitle, DrawerTrigger } from "@/components/ui/drawer";
+import { Briefcase, Users, Target, Heart, ArrowRight, CheckCircle } from "lucide-react";
 import empowermentImg from "@/assets/empowerment.jpg";
 import mentorshipImg from "@/assets/mentorship.jpg";
 import coachingImg from "@/assets/coaching.jpg";
@@ -125,13 +126,57 @@ const Services = () => {
                     ))}
                   </ul>
 
-                  <Button 
-                    variant="outline" 
-                    className="w-full group-hover:bg-primary group-hover:text-primary-foreground group-hover:border-primary transition-all duration-200"
-                  >
-                    Learn More
-                    <ArrowRight className="ml-2 h-4 w-4 transition-transform duration-200 group-hover:translate-x-1" />
-                  </Button>
+                  <Drawer>
+                    <DrawerTrigger asChild>
+                      <Button 
+                        variant="outline" 
+                        className="w-full group-hover:bg-primary group-hover:text-primary-foreground group-hover:border-primary transition-all duration-200"
+                      >
+                        Learn More
+                        <ArrowRight className="ml-2 h-4 w-4 transition-transform duration-200 group-hover:translate-x-1" />
+                      </Button>
+                    </DrawerTrigger>
+                    <DrawerContent className="max-h-[80vh]">
+                      <DrawerHeader>
+                        <div className="flex items-center gap-3 mb-2">
+                          <div className="w-12 h-12 bg-primary rounded-full flex items-center justify-center">
+                            <Icon className="h-6 w-6 text-primary-foreground" />
+                          </div>
+                          <DrawerTitle className="text-2xl">{service.title}</DrawerTitle>
+                        </div>
+                        <DrawerDescription className="text-left">
+                          {service.description}
+                        </DrawerDescription>
+                      </DrawerHeader>
+                      <div className="px-4 pb-6">
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                          <div>
+                            <img
+                              src={service.image}
+                              alt={service.title}
+                              className="w-full h-48 object-cover rounded-lg"
+                            />
+                          </div>
+                          <div>
+                            <h4 className="text-lg font-semibold mb-3">What You'll Get:</h4>
+                            <ul className="space-y-2">
+                              {service.features.map((feature, featureIndex) => (
+                                <li key={featureIndex} className="flex items-start gap-2">
+                                  <CheckCircle className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
+                                  <span className="text-sm">{feature}</span>
+                                </li>
+                              ))}
+                            </ul>
+                            <div className="mt-6">
+                              <Button className="w-full bg-gradient-primary hover:bg-primary-hover">
+                                Get Started with {service.title}
+                              </Button>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </DrawerContent>
+                  </Drawer>
                 </CardContent>
               </Card>
             );

@@ -1,15 +1,18 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Menu, X, Phone, Mail, MapPin } from "lucide-react";
+import { NavLink } from "react-router-dom";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const navItems = [
-    { name: "Home", href: "#home" },
-    { name: "About", href: "#about" },
-    { name: "Services", href: "#services" },
-    { name: "Contact", href: "#contact" },
+    { name: "Home", href: "/" },
+    { name: "About Us", href: "/about" },
+    { name: "Our Programs", href: "/programs" },
+    { name: "Join Us", href: "/join" },
+    { name: "Gallery", href: "/gallery" },
+    { name: "Contact Us", href: "/contact" },
   ];
 
   return (
@@ -53,13 +56,17 @@ const Header = () => {
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-8">
             {navItems.map((item) => (
-              <a
+              <NavLink
                 key={item.name}
-                href={item.href}
-                className="text-foreground hover:text-primary transition-colors duration-200 font-medium"
+                to={item.href}
+                className={({ isActive }) => 
+                  `text-foreground hover:text-primary transition-colors duration-200 font-medium ${
+                    isActive ? 'text-primary border-b-2 border-primary' : ''
+                  }`
+                }
               >
                 {item.name}
-              </a>
+              </NavLink>
             ))}
             <Button className="bg-gradient-primary hover:bg-primary-hover">
               Get Support
@@ -81,14 +88,18 @@ const Header = () => {
           <div className="md:hidden mt-4 py-4 border-t border-border animate-fade-in">
             <div className="flex flex-col space-y-4">
               {navItems.map((item) => (
-                <a
+                <NavLink
                   key={item.name}
-                  href={item.href}
-                  className="text-foreground hover:text-primary transition-colors duration-200 font-medium py-2"
+                  to={item.href}
+                  className={({ isActive }) => 
+                    `text-foreground hover:text-primary transition-colors duration-200 font-medium py-2 block ${
+                      isActive ? 'text-primary' : ''
+                    }`
+                  }
                   onClick={() => setIsMenuOpen(false)}
                 >
                   {item.name}
-                </a>
+                </NavLink>
               ))}
               <Button className="bg-gradient-primary hover:bg-primary-hover mt-4">
                 Get Support
