@@ -8,7 +8,7 @@ const Header = () => {
 
   const navItems = [
     { name: "Home", href: "/" },
-    { name: "About Us", href: "/about" },
+    { name: "About ", href: "/about" },
     { name: "Our Programs", href: "/programs" },
     { name: "Join Us", href: "/join" },
     { name: "Gallery", href: "/gallery" },
@@ -53,8 +53,8 @@ const Header = () => {
             </div>
           </div>
 
-          {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-8">
+          {/* Desktop Navigation - CHANGED md:flex to lg:flex */}
+          <div className="hidden lg:flex items-center space-x-8">
             {navItems.map((item) => (
               <NavLink
                 key={item.name}
@@ -73,9 +73,9 @@ const Header = () => {
             </Button>
           </div>
 
-          {/* Mobile menu button */}
+          {/* Mobile menu button - CHANGED md:hidden to lg:hidden */}
           <button
-            className="md:hidden p-2"
+            className="lg:hidden p-2"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
             aria-label="Toggle menu"
           >
@@ -83,9 +83,9 @@ const Header = () => {
           </button>
         </div>
 
-        {/* Mobile Navigation */}
+        {/* Mobile Navigation - CHANGED md:hidden to lg:hidden */}
         {isMenuOpen && (
-          <div className="md:hidden mt-4 py-4 border-t border-border animate-fade-in">
+          <div className="lg:hidden mt-4 py-4 border-t border-border animate-fade-in">
             <div className="flex flex-col space-y-4">
               {navItems.map((item) => (
                 <NavLink
