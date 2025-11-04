@@ -2,11 +2,11 @@
 // Headers
 header('Access-Control-Allow-Origin: *');
 header('Content-Type: application/json');
-header('Access-Control-Allow-Methods: DELETE');
+header('Access-Control-Allow-Methods: POST');
 header('Access-Control-Allow-Headers: Access-Control-Allow-Headers, Content-Type, Access-Control-Allow-Methods, Authorization, X-Requested-With');
 
-include_once '../../config/database.php';
-include_once '../../models/Event.php';
+include_once '../config/database.php';
+include_once '../models/Event.php';
 
 // Instantiate DB & connect
 $database = new Database();
@@ -18,20 +18,30 @@ $event = new Event($db);
 // Get posted data
 $data = json_decode(file_get_contents("php://input"));
 
-// Check if ID is provided
-if(!empty($data->id)) {
-    // Set ID to delete
-    $event->id = $data->id;
+// Make sure data is not empty
+if(
+    !empty($data->title) &&
+    !empty($data->event_date)
+) {
+    // Set event properties
+    $event->title = $data->title;
+    $event->event_date = $data->event_date;
+    $event->event_time = $data->event_time ?? null;
+    $event->location = $data->location ?? null;
+    $event->description = $data->description ?? null;
+    $event->link = $data->link ?? null;
+    $event->status = $data->status ?? 'active';
 
-    // Delete the event
-    if($event->delete()) {
-        // Set response code - 200 ok
-        http_response_code(200);
+    // Create the event
+    if($event->create()) {
+        // Set response code - 201 created
+        http_response_code(201);
 
         // Tell the user
         echo json_encode(array(
             "success" => true,
-            "message" => "Event was deleted successfully."
+            "message" => "Event was created successfully.",
+            "id" => $event->id
         ));
     } else {
         // Set response code - 503 service unavailable
@@ -40,7 +50,7 @@ if(!empty($data->id)) {
         // Tell the user
         echo json_encode(array(
             "success" => false,
-            "message" => "Unable to delete event."
+            "message" => "Unable to create event."
         ));
     }
 } else {
@@ -50,7 +60,7 @@ if(!empty($data->id)) {
     // Tell the user
     echo json_encode(array(
         "success" => false,
-        "message" => "Unable to delete event. ID is required."
+        "message" => "Unable to create event. Title and date are required."
     ));
 }
 ?>

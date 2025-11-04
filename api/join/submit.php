@@ -12,7 +12,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
 }
 
 // Database connection
-include_once '../../config/database.php';
+include_once '../config/database.php';
 
 // Get database connection
 $database = new Database();

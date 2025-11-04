@@ -2,11 +2,11 @@
 // Headers
 header('Access-Control-Allow-Origin: *');
 header('Content-Type: application/json');
-header('Access-Control-Allow-Methods: POST');
+header('Access-Control-Allow-Methods: PUT');
 header('Access-Control-Allow-Headers: Access-Control-Allow-Headers, Content-Type, Access-Control-Allow-Methods, Authorization, X-Requested-With');
 
-include_once '../../config/database.php';
-include_once '../../models/Event.php';
+include_once '../config/database.php';
+include_once '../models/Event.php';
 
 // Instantiate DB & connect
 $database = new Database();
@@ -20,10 +20,12 @@ $data = json_decode(file_get_contents("php://input"));
 
 // Make sure data is not empty
 if(
+    !empty($data->id) &&
     !empty($data->title) &&
     !empty($data->event_date)
 ) {
     // Set event properties
+    $event->id = $data->id;
     $event->title = $data->title;
     $event->event_date = $data->event_date;
     $event->event_time = $data->event_time ?? null;
@@ -32,16 +34,15 @@ if(
     $event->link = $data->link ?? null;
     $event->status = $data->status ?? 'active';
 
-    // Create the event
-    if($event->create()) {
-        // Set response code - 201 created
-        http_response_code(201);
+    // Update the event
+    if($event->update()) {
+        // Set response code - 200 ok
+        http_response_code(200);
 
         // Tell the user
         echo json_encode(array(
             "success" => true,
-            "message" => "Event was created successfully.",
-            "id" => $event->id
+            "message" => "Event was updated successfully."
         ));
     } else {
         // Set response code - 503 service unavailable
@@ -50,7 +51,7 @@ if(
         // Tell the user
         echo json_encode(array(
             "success" => false,
-            "message" => "Unable to create event."
+            "message" => "Unable to update event."
         ));
     }
 } else {
@@ -60,7 +61,7 @@ if(
     // Tell the user
     echo json_encode(array(
         "success" => false,
-        "message" => "Unable to create event. Title and date are required."
+        "message" => "Unable to update event. ID, title and date are required."
     ));
 }
 ?>

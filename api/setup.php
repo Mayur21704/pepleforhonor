@@ -1,14 +1,24 @@
 <?php
 // Database setup script - Run this to create the DB and all required tables
 
+// Load environment variables
+require_once __DIR__ . '/bootstrap_env.php';
+
 echo "Setting up People for Honor database...\n\n";
 
 try {
-    // Database credentials - MUST match config/database.php
-    $host = "localhost";
-    $db_name = "peopleforhonor";
-    $username = "root";
-    $password = "zoro";
+    // Get database credentials from .env file
+    $host = $_ENV['DB_HOST'];
+    $db_name = $_ENV['DB_NAME'];
+    $username = $_ENV['DB_USER'];
+    $password = $_ENV['DB_PASS'];
+    
+    if (empty($db_name) || empty($username)) {
+        throw new Exception("Database credentials not found in .env file");
+    }
+    
+    echo "📋 Using database: $db_name on host: $host\n";
+    echo "👤 Using username: $username\n\n";
     
     // Connect to MySQL server (without database selected first)
     $conn = new PDO("mysql:host=$host", $username, $password);
@@ -87,12 +97,20 @@ try {
 
     echo "\n✅ Database setup complete!\n";
     echo "API endpoints:\n";
-    echo " - Events (public):   http://localhost:8000/api/events/read.php\n";
-    echo " - Join Us (submit):  http://localhost:8000/api/join/submit.php\n";
-    echo " - Contact (submit):  http://localhost:8000/api/contact/submit.php\n";
+    echo " - Events (public):   /api/events/read.php\n";
+    echo " - Join Us (submit):  /api/join/submit.php\n";
+    echo " - Contact (submit):  /api/contact/submit.php\n";
 
 } catch(PDOException $e) {
     echo "❌ Setup failed: " . $e->getMessage() . "\n";
+    echo "\n💡 Make sure your .env file has correct database credentials:\n";
+    echo "   DB_HOST=localhost\n";
+    echo "   DB_NAME=your_database_name\n";
+    echo "   DB_USER=your_database_user\n";
+    echo "   DB_PASS=your_database_password\n";
+    exit(1);
+} catch(Exception $e) {
+    echo "❌ Error: " . $e->getMessage() . "\n";
     exit(1);
 }
 ?>
