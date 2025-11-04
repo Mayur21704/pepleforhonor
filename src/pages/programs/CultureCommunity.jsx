@@ -3,7 +3,6 @@ import Footer from "@/components/Footer";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Heart, ArrowRight } from "lucide-react";
-import communityImg from "@/assets/community.jpg";
 import { Link } from "react-router-dom";
 
 const CultureCommunity = () => {
@@ -26,11 +25,21 @@ const CultureCommunity = () => {
                 <section className="py-16">
                     <div className="container mx-auto px-4">
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-start">
-                            <img
-                                src={communityImg}
-                                alt="Culture and Community"
-                                className="w-full h-64 md:h-80 object-cover rounded-xl"
-                            />
+                            {/* Left side: YouTube Video */}
+                            <div className="space-y-6">
+                                <div className="aspect-video w-full rounded-xl overflow-hidden">
+                                    <iframe
+                                        className="w-full h-full"
+                                        src="https://www.youtube.com/embed/HQ5mnZqWgMk?rel=0&modestbranding=1&playsinline=1"
+                                        title="Culture & Community - People for Honor"
+                                        frameBorder="0"
+                                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                        allowFullScreen
+                                    ></iframe>
+                                </div>
+                            </div>
+
+                            {/* Right side: Card */}
                             <Card className="bg-gradient-card border-0 shadow-medium">
                                 <CardHeader>
                                     <div className="flex items-center gap-3 mb-2">
@@ -74,6 +83,11 @@ const CultureCommunity = () => {
                                     <CardTitle className="text-xl">African/Caribean Cultural Dance Exchange</CardTitle>
                                 </CardHeader>
                                 <CardContent>
+                                    <img
+                                        src="https://peopleforhonor.com/wp-content/uploads/2025/07/IMG_0070-scaled-e1751908347505.jpeg"
+                                        alt="Cultural Dance Exchange"
+                                        className="w-full h-96 object-cover rounded-lg mb-4"
+                                    />
                                     <CardDescription className="text-base leading-relaxed mb-4">
                                         We believe that joy, culture, and community can help carry us through. That’s why, once a month, we
                                         turn up the music and turn the room into a global dance floor.
@@ -93,6 +107,11 @@ const CultureCommunity = () => {
                                     <CardTitle className="text-xl">African/Caribean Domestic Empowerment</CardTitle>
                                 </CardHeader>
                                 <CardContent>
+                                    <img
+                                        src="https://peopleforhonor.com/wp-content/uploads/2019/05/2ea79966-5fef-4dda-a4b0-9edbb87710a1.jpeg"
+                                        alt="Domestic Empowerment"
+                                        className="w-full h-96 object-cover rounded-lg mb-4"
+                                    />
                                     <CardDescription className="text-base leading-relaxed mb-4">
                                         Learn recipes from around Africa and the Caribbean through our domestic empowerment program.
                                     </CardDescription>

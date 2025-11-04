@@ -7,6 +7,8 @@ import Footer from "@/components/Footer";
 import HomeCta from "@/components/HomeCta";
 import GetInvolved from "@/components/GetInvolved";
 import NewsletterCta from "@/components/NewsletterCta";
+import VideoSection from "@/components/VideoSection";
+import FeaturedImageSection from "@/components/FeaturedImageSection";
 
 const Index = () => {
     return (
@@ -15,9 +17,11 @@ const Index = () => {
             <main>
                 <Hero />
                 <Services />
+                <FeaturedImageSection />
+                <VideoSection />
                 <GetInvolved />
                 <HomeCta />
-                <About />
+                {/* <About /> */}
                 <Contact />
                 <NewsletterCta />
             </main>

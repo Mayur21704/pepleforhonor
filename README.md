@@ -120,6 +120,7 @@ Creates all tables and seeds sample events if empty.
   - DELETE `/api/events/delete.php` — Delete event (admin)
   - GET `/api/events/read_all.php` — All events including inactive (admin panel)
   - GET `/api/events/read_single.php?id={id}` — Single event (admin panel edit)
+  - GET `/api/events/read_by_slug.php?slug={slug}` — Single event by URL slug (event detail pages)
 
 - Join Us (public form)
   - POST `/api/join/submit.php`

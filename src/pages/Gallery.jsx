@@ -2,110 +2,284 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { useState } from "react";
 import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Badge } from "@/components/ui/badge";
-import { Play, Calendar, Users, MapPin } from "lucide-react";
+import { Play, Users, Image as ImageIcon, Video, ChevronLeft, ChevronRight } from "lucide-react";
+import useEmblaCarousel from "embla-carousel-react";
 
 const Gallery = () => {
-    const [selectedCategory, setSelectedCategory] = useState("all");
-
-    const galleryItems = [
+    // Gallery items for images - Real People for Honor events
+    const imageItems = [
         {
-            id: 1,
-            title: "Employment Workshop Success",
-            category: "workshops",
+            id: 2797,
+            title: "IMG-20241215-WA0038",
+            category: "gallery",
             type: "image",
-            image: "/api/placeholder/400/300",
-            description: "Participants celebrating their resume workshop completion",
-            date: "March 2024",
-            location: "Ottawa Community Center"
+            image: "https://peopleforhonor.com/wp-content/uploads/2024/12/IMG-20241215-WA0038.jpg",
+            description: "Year-end celebration",
+            date: "December 2024",
+            location: "People for Honor"
         },
         {
-            id: 2,
-            title: "Cultural Dance Exchange",
-            category: "events",
-            type: "video",
-            image: "/api/placeholder/400/300",
-            videoUrl: "https://youtu.be/ZuCfJjYP4KU",
-            description: "African/Caribbean Dance Exchange bringing communities together",
-            date: "February 2024",
-            location: "Ottawa Cultural Center"
-        },
-        {
-            id: 3,
-            title: "Mentorship Program Launch",
-            category: "programs",
+            id: 2798,
+            title: "IMG-20241215-WA0037",
+            category: "gallery",
             type: "image",
-            image: "/api/placeholder/400/300",
-            description: "Connecting newcomers with experienced mentors",
-            date: "January 2024",
-            location: "People for Honor Office"
-        },
-        {
-            id: 4,
-            title: "Community Cooking Session",
-            category: "events",
-            type: "image",
-            image: "/api/placeholder/400/300",
-            description: "Sharing traditional recipes and building connections",
-            date: "March 2024",
-            location: "Community Kitchen"
-        },
-        {
-            id: 5,
-            title: "Empowerment Success Stories",
-            category: "testimonials",
-            type: "video",
-            image: "/api/placeholder/400/300",
-            videoUrl: "https://youtu.be/MlBTjyV_ado",
-            description: "Hear from participants about their transformation journey",
-            date: "February 2024",
-            location: "Various Locations"
-        },
-        {
-            id: 6,
-            title: "Job Fair Preparation",
-            category: "workshops",
-            type: "image",
-            image: "/api/placeholder/400/300",
-            description: "Getting ready for success at the Ottawa Job Fair",
-            date: "March 2024",
-            location: "Business Development Center"
-        },
-        {
-            id: 7,
-            title: "Leadership Training Graduation",
-            category: "programs",
-            type: "image",
-            image: "/api/placeholder/400/300",
-            description: "Celebrating new leaders in our community",
-            date: "February 2024",
-            location: "Ottawa Conference Center"
-        },
-        {
-            id: 8,
-            title: "Cultural Festival",
-            category: "events",
-            type: "image",
-            image: "/api/placeholder/400/300",
-            description: "Celebrating diversity through music, food, and dance",
-            date: "January 2024",
-            location: "Lansdowne Park"
+            image: "https://peopleforhonor.com/wp-content/uploads/2024/12/IMG-20241215-WA0037.jpg",
+            description: "Year-end celebration",
+            date: "December 2024",
+            location: "People for Honor"
         }
     ];
 
-    const categories = [
-        { id: "all", label: "All", count: galleryItems.length },
-        { id: "events", label: "Events", count: galleryItems.filter(item => item.category === "events").length },
-        { id: "workshops", label: "Workshops", count: galleryItems.filter(item => item.category === "workshops").length },
-        { id: "programs", label: "Programs", count: galleryItems.filter(item => item.category === "programs").length },
-        { id: "testimonials", label: "Testimonials", count: galleryItems.filter(item => item.category === "testimonials").length }
+    // Gallery items for videos - from PFH Gallery page
+    const videoItems = [
+        {
+            id: 1,
+            title: "Gallery Video",
+            category: "gallery",
+            type: "video",
+            thumbnail: "https://img.youtube.com/vi/L8tsLvAhXYQ/maxresdefault.jpg",
+            videoUrl: "https://youtu.be/L8tsLvAhXYQ",
+            videoId: "L8tsLvAhXYQ",
+            description: "",
+            date: "",
+            location: ""
+        },
+        {
+            id: 2,
+            title: "Gallery Video",
+            category: "gallery",
+            type: "video",
+            thumbnail: "https://img.youtube.com/vi/MCi493kuCtg/maxresdefault.jpg",
+            videoUrl: "https://youtu.be/MCi493kuCtg",
+            videoId: "MCi493kuCtg",
+            description: "",
+            date: "",
+            location: ""
+        },
+        {
+            id: 3,
+            title: "Gallery Video",
+            category: "gallery",
+            type: "video",
+            thumbnail: "https://img.youtube.com/vi/mJ41FnYfi1M/maxresdefault.jpg",
+            videoUrl: "https://youtu.be/mJ41FnYfi1M",
+            videoId: "mJ41FnYfi1M",
+            description: "",
+            date: "",
+            location: ""
+        },
+        {
+            id: 4,
+            title: "Gallery Video",
+            category: "gallery",
+            type: "video",
+            thumbnail: "https://img.youtube.com/vi/r8Z0QHQY_Bk/maxresdefault.jpg",
+            videoUrl: "https://www.youtube.com/watch?v=r8Z0QHQY_Bk",
+            videoId: "r8Z0QHQY_Bk",
+            description: "",
+            date: "",
+            location: ""
+        },
+        {
+            id: 5,
+            title: "Gallery Video",
+            category: "gallery",
+            type: "video",
+            thumbnail: "https://img.youtube.com/vi/CeBroypqQLQ/maxresdefault.jpg",
+            videoUrl: "https://youtu.be/CeBroypqQLQ",
+            videoId: "CeBroypqQLQ",
+            description: "",
+            date: "",
+            location: ""
+        },
+        {
+            id: 6,
+            title: "Gallery Video",
+            category: "gallery",
+            type: "video",
+            thumbnail: "https://img.youtube.com/vi/I8B-j-UBFzs/maxresdefault.jpg",
+            videoUrl: "https://youtu.be/I8B-j-UBFzs",
+            videoId: "I8B-j-UBFzs",
+            description: "",
+            date: "",
+            location: ""
+        },
+        {
+            id: 7,
+            title: "Gallery Video",
+            category: "gallery",
+            type: "video",
+            thumbnail: "https://img.youtube.com/vi/2Azj1KLcz_o/maxresdefault.jpg",
+            videoUrl: "https://youtu.be/2Azj1KLcz_o",
+            videoId: "2Azj1KLcz_o",
+            description: "",
+            date: "",
+            location: ""
+        },
+        {
+            id: 8,
+            title: "Gallery Video",
+            category: "gallery",
+            type: "video",
+            thumbnail: "https://img.youtube.com/vi/2FHO9-0mGzc/maxresdefault.jpg",
+            videoUrl: "https://youtu.be/2FHO9-0mGzc",
+            videoId: "2FHO9-0mGzc",
+            description: "",
+            date: "",
+            location: ""
+        },
+        {
+            id: 9,
+            title: "Gallery Video",
+            category: "gallery",
+            type: "video",
+            thumbnail: "https://img.youtube.com/vi/wc7qLue8JiA/maxresdefault.jpg",
+            videoUrl: "https://youtu.be/wc7qLue8JiA",
+            videoId: "wc7qLue8JiA",
+            description: "",
+            date: "",
+            location: ""
+        },
+        {
+            id: 10,
+            title: "Gallery Video",
+            category: "gallery",
+            type: "video",
+            thumbnail: "https://img.youtube.com/vi/EuqJ_fj4nlk/maxresdefault.jpg",
+            videoUrl: "https://youtu.be/EuqJ_fj4nlk",
+            videoId: "EuqJ_fj4nlk",
+            description: "",
+            date: "",
+            location: ""
+        },
+        {
+            id: 11,
+            title: "Gallery Video",
+            category: "gallery",
+            type: "video",
+            thumbnail: "https://img.youtube.com/vi/vx_riA-W03Q/maxresdefault.jpg",
+            videoUrl: "https://youtu.be/vx_riA-W03Q",
+            videoId: "vx_riA-W03Q",
+            description: "",
+            date: "",
+            location: ""
+        },
+        {
+            id: 12,
+            title: "Gallery Video",
+            category: "gallery",
+            type: "video",
+            thumbnail: "https://img.youtube.com/vi/OB-0fGkGFK4/maxresdefault.jpg",
+            videoUrl: "https://youtu.be/OB-0fGkGFK4",
+            videoId: "OB-0fGkGFK4",
+            description: "",
+            date: "",
+            location: ""
+        }
     ];
 
-    const filteredItems = selectedCategory === "all"
-        ? galleryItems
-        : galleryItems.filter(item => item.category === selectedCategory);
+    const renderMediaGrid = (items, isVideo = false) => (
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+            {items.map((item) => (
+                <Dialog key={item.id}>
+                    <DialogTrigger asChild>
+                        <Card className="group cursor-pointer overflow-hidden hover:shadow-strong transition-shadow duration-300">
+                            <div className="relative aspect-square overflow-hidden">
+                                <img
+                                    src={isVideo ? item.thumbnail : item.image}
+                                    alt={item.title}
+                                    className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+                                />
+                                {isVideo && (
+                                    <div className="absolute inset-0 flex items-center justify-center bg-black/30 group-hover:bg-black/40 transition-colors">
+                                        <div className="w-12 h-12 bg-primary rounded-full flex items-center justify-center group-hover:scale-110 transition-transform">
+                                            <Play className="h-6 w-6 text-primary-foreground ml-1" />
+                                        </div>
+                                    </div>
+                                )}
+                                <div className="absolute top-2 left-2">
+                                    <Badge variant="secondary" className="text-xs capitalize">
+                                        {item.category.replace('-', ' ')}
+                                    </Badge>
+                                </div>
+                            </div>
+                            <div className="p-4">
+                                <h3 className="font-semibold text-foreground mb-2 line-clamp-2">
+                                    {item.title}
+                                </h3>
+                                <p className="text-sm text-muted-foreground mb-3 line-clamp-2">
+                                    {item.description}
+                                </p>
+                            </div>
+                        </Card>
+                    </DialogTrigger>
+
+                    <DialogContent className="max-w-5xl p-0 overflow-hidden">
+                        <div className="aspect-video w-full">
+                            {isVideo ? (
+                                <iframe
+                                    className="w-full h-full"
+                                    src={`https://www.youtube.com/embed/${item.videoId}?autoplay=1&rel=0&modestbranding=1&playsinline=1`}
+                                    title={item.title}
+                                    frameBorder="0"
+                                    allow="autoplay; accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                    allowFullScreen
+                                ></iframe>
+                            ) : (
+                                <img
+                                    src={item.image}
+                                    alt={item.title}
+                                    className="w-full h-full object-cover"
+                                />
+                            )}
+                        </div>
+                    </DialogContent>
+                </Dialog>
+            ))}
+        </div>
+    );
+
+    const ImageSlider = ({ items }) => {
+        const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true });
+        const scrollPrev = () => emblaApi && emblaApi.scrollPrev();
+        const scrollNext = () => emblaApi && emblaApi.scrollNext();
+
+        return (
+            <div className="relative max-w-3xl md:max-w-4xl mx-auto">
+                <div className="overflow-hidden rounded-xl" ref={emblaRef}>
+                    <div className="flex">
+                        {items.map((item) => (
+                            <div className="flex-[0_0_100%]" key={item.id}>
+                                <div className="aspect-[16/9] w-full overflow-hidden bg-muted">
+                                    <img src={item.image} alt={item.title} className="h-full w-full object-cover" />
+                                </div>
+                            </div>
+                        ))}
+                    </div>
+                </div>
+
+                <button
+                    type="button"
+                    aria-label="Previous"
+                    onClick={scrollPrev}
+                    className="absolute left-3 top-1/2 -translate-y-1/2 z-10 rounded-full bg-background/70 backdrop-blur border border-border p-1.5 shadow hover:bg-background"
+                >
+                    <ChevronLeft className="h-4 w-4" />
+                </button>
+                <button
+                    type="button"
+                    aria-label="Next"
+                    onClick={scrollNext}
+                    className="absolute right-3 top-1/2 -translate-y-1/2 z-10 rounded-full bg-background/70 backdrop-blur border border-border p-1.5 shadow hover:bg-background"
+                >
+                    <ChevronRight className="h-4 w-4" />
+                </button>
+            </div>
+        );
+    };
 
     return (
         <div className="min-h-screen">
@@ -119,146 +293,72 @@ const Gallery = () => {
                                 Our Gallery
                             </h1>
                             <p className="text-xl leading-relaxed opacity-90">
-                                See the impact we're making in our community. From workshops and events to
-                                success stories and cultural celebrations - every moment tells a story of growth and connection.
+                                At People for Honor, we believe in the power of hope to transform lives.
+                                See the impact we're making in our community through workshops, cultural events,
+                                and meaningful connections that help newcomers thrive in Canada.
                             </p>
                         </div>
                     </div>
                 </section>
 
-                {/* Category Filter */}
-                <section className="py-8 border-b border-border">
+                {/* Tabs for Images and Videos */}
+                <section className="py-12">
                     <div className="container mx-auto px-4">
-                        <div className="flex flex-wrap justify-center gap-2">
-                            {categories.map((category) => (
-                                <Button
-                                    key={category.id}
-                                    variant={selectedCategory === category.id ? "default" : "outline"}
-                                    onClick={() => setSelectedCategory(category.id)}
-                                    className={`${selectedCategory === category.id
-                                            ? "bg-gradient-primary hover:bg-primary-hover"
-                                            : "hover:bg-muted"
-                                        }`}
-                                >
-                                    {category.label}
-                                    <Badge variant="secondary" className="ml-2">
-                                        {category.count}
-                                    </Badge>
-                                </Button>
-                            ))}
-                        </div>
-                    </div>
-                </section>
+                        <Tabs defaultValue="all" className="w-full">
+                            <div className="flex flex-col items-center mb-8">
+                                <TabsList className="mb-6 grid w-full max-w-md grid-cols-3 h-12">
+                                    <TabsTrigger value="all" className="text-sm sm:text-base">
+                                        <Users className="h-4 w-4 mr-2" />
+                                        All
+                                    </TabsTrigger>
+                                    <TabsTrigger value="images" className="text-sm sm:text-base">
+                                        <ImageIcon className="h-4 w-4 mr-2" />
+                                        Images
+                                    </TabsTrigger>
+                                    <TabsTrigger value="videos" className="text-sm sm:text-base">
+                                        <Video className="h-4 w-4 mr-2" />
+                                        Videos
+                                    </TabsTrigger>
+                                </TabsList>
 
-                {/* Gallery Grid */}
-                <section className="py-20">
-                    <div className="container mx-auto px-4">
-                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-                            {filteredItems.map((item) => (
-                                <Dialog key={item.id}>
-                                    <DialogTrigger asChild>
-                                        <Card className="group cursor-pointer overflow-hidden hover:shadow-strong transition-shadow duration-300">
-                                            <div className="relative aspect-square overflow-hidden">
-                                                <img
-                                                    src={item.image}
-                                                    alt={item.title}
-                                                    className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
-                                                />
-                                                {item.type === "video" && (
-                                                    <div className="absolute inset-0 flex items-center justify-center bg-black/30">
-                                                        <div className="w-12 h-12 bg-primary rounded-full flex items-center justify-center">
-                                                            <Play className="h-6 w-6 text-primary-foreground ml-1" />
-                                                        </div>
-                                                    </div>
-                                                )}
-                                                <div className="absolute top-2 left-2">
-                                                    <Badge variant="secondary" className="text-xs">
-                                                        {item.category}
-                                                    </Badge>
-                                                </div>
-                                            </div>
-                                            <div className="p-4">
-                                                <h3 className="font-semibold text-foreground mb-2 line-clamp-2">
-                                                    {item.title}
-                                                </h3>
-                                                <p className="text-sm text-muted-foreground mb-3 line-clamp-2">
-                                                    {item.description}
-                                                </p>
-                                                <div className="flex items-center gap-4 text-xs text-muted-foreground">
-                                                    <div className="flex items-center gap-1">
-                                                        <Calendar className="h-3 w-3" />
-                                                        {item.date}
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </Card>
-                                    </DialogTrigger>
+                                <TabsContent value="all" className="mt-8">
+                                    <div className="mb-12">
+                                        <h2 className="text-2xl font-bold text-foreground mb-6 flex items-center gap-2">
+                                            <ImageIcon className="h-6 w-6 text-primary" />
+                                            Images
+                                            <Badge variant="outline">{imageItems.length}</Badge>
+                                        </h2>
+                                        <ImageSlider items={imageItems} />
+                                    </div>
+                                    <div>
+                                        <h2 className="text-2xl font-bold text-foreground mb-6 flex items-center gap-2">
+                                            <Video className="h-6 w-6 text-primary" />
+                                            Videos
+                                            <Badge variant="outline">{videoItems.length}</Badge>
+                                        </h2>
+                                        {renderMediaGrid(videoItems, true)}
+                                    </div>
+                                </TabsContent>
 
-                                    <DialogContent className="max-w-4xl max-h-[90vh] overflow-auto">
-                                        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-                                            <div className="aspect-video lg:aspect-square overflow-hidden rounded-lg">
-                                                {item.type === "video" ? (
-                                                    <div className="w-full h-full bg-muted flex items-center justify-center">
-                                                        <div className="text-center">
-                                                            <Play className="h-12 w-12 text-muted-foreground mx-auto mb-2" />
-                                                            <p className="text-sm text-muted-foreground mb-4">Video Content</p>
-                                                            <Button
-                                                                className="bg-gradient-primary hover:bg-primary-hover"
-                                                                onClick={() => window.open(item.videoUrl, '_blank')}
-                                                            >
-                                                                Watch on YouTube
-                                                            </Button>
-                                                        </div>
-                                                    </div>
-                                                ) : (
-                                                    <img
-                                                        src={item.image}
-                                                        alt={item.title}
-                                                        className="w-full h-full object-cover"
-                                                    />
-                                                )}
-                                            </div>
+                                <TabsContent value="images" className="mt-8">
+                                    <div className="mb-6 text-center">
+                                        <p className="text-muted-foreground">
+                                            Showing {imageItems.length} {imageItems.length === 1 ? 'image' : 'images'}
+                                        </p>
+                                    </div>
+                                    <ImageSlider items={imageItems} />
+                                </TabsContent>
 
-                                            <div className="space-y-4">
-                                                <div>
-                                                    <Badge variant="outline" className="mb-2">
-                                                        {item.category}
-                                                    </Badge>
-                                                    <h2 className="text-2xl font-bold text-foreground">
-                                                        {item.title}
-                                                    </h2>
-                                                </div>
-
-                                                <p className="text-muted-foreground leading-relaxed">
-                                                    {item.description}
-                                                </p>
-
-                                                <div className="space-y-2">
-                                                    <div className="flex items-center gap-2 text-sm text-muted-foreground">
-                                                        <Calendar className="h-4 w-4" />
-                                                        <span>{item.date}</span>
-                                                    </div>
-                                                    <div className="flex items-center gap-2 text-sm text-muted-foreground">
-                                                        <MapPin className="h-4 w-4" />
-                                                        <span>{item.location}</span>
-                                                    </div>
-                                                </div>
-
-                                                {item.type === "video" && (
-                                                    <Button
-                                                        className="w-full bg-gradient-primary hover:bg-primary-hover mt-4"
-                                                        onClick={() => window.open(item.videoUrl, '_blank')}
-                                                    >
-                                                        <Play className="mr-2 h-4 w-4" />
-                                                        Watch Full Video
-                                                    </Button>
-                                                )}
-                                            </div>
-                                        </div>
-                                    </DialogContent>
-                                </Dialog>
-                            ))}
-                        </div>
+                                <TabsContent value="videos" className="mt-8">
+                                    <div className="mb-6 text-center">
+                                        <p className="text-muted-foreground">
+                                            Showing {videoItems.length} {videoItems.length === 1 ? 'video' : 'videos'}
+                                        </p>
+                                    </div>
+                                    {renderMediaGrid(videoItems, true)}
+                                </TabsContent>
+                            </div>
+                        </Tabs>
                     </div>
                 </section>
 
@@ -275,11 +375,11 @@ const Gallery = () => {
                                     and a step toward a brighter future. Join us and become part of these amazing stories.
                                 </p>
                                 <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                                    <Button className="bg-gradient-primary hover:bg-primary-hover">
-                                        Join Our Programs
+                                    <Button className="bg-gradient-primary hover:bg-primary-hover" asChild>
+                                        <a href="/programs">Join Our Programs</a>
                                     </Button>
-                                    <Button variant="outline">
-                                        Volunteer With Us
+                                    <Button variant="outline" asChild>
+                                        <a href="/join">Volunteer With Us</a>
                                     </Button>
                                 </div>
                             </Card>

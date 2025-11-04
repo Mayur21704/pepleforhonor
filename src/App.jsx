@@ -12,7 +12,7 @@ import ContactPage from "./pages/ContactPage";
 import NotFound from "./pages/NotFound";
 import CultureCommunity from "./pages/programs/CultureCommunity";
 import EmpowermentMentorship from "./pages/programs/EmpowermentMentorship";
-import CulturalDanceExchange from "./pages/events/CulturalDanceExchange";
+import EventDetail from "./pages/EventDetail";
 
 const queryClient = new QueryClient();
 
@@ -31,8 +31,9 @@ const App = () => (
                     <Route path="/programs/coaching" element={<EmpowermentMentorship />} />
                     <Route path="/service/culture-and-community-ottawa-program" element={<CultureCommunity />} />
                     <Route path="/programs/culture-community" element={<Navigate to="/service/culture-and-community-ottawa-program" replace />} />
-                    <Route path="/african-caribbean-cultural-dance-exchange" element={<CulturalDanceExchange />} />
-                    <Route path="/events/african-caribbean-cultural-dance-exchange" element={<CulturalDanceExchange />} />
+                    {/* Dynamic event detail routes */}
+                    <Route path="/:slug" element={<EventDetail />} />
+                    <Route path="/events/:slug" element={<EventDetail />} />
                     <Route path="/join" element={<JoinUs />} />
                     <Route path="/gallery" element={<Gallery />} />
                     <Route path="/contact" element={<ContactPage />} />

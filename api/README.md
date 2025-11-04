@@ -64,6 +64,10 @@ php -S localhost:8000
 - GET `/api/events/read_single.php?id={id}`
   - Get one event by id (admin panel edit form)
 
+- GET `/api/events/read_by_slug.php?slug={slug}`
+  - Get one event by URL slug (event detail pages)
+  - Example: `/api/events/read_by_slug.php?slug=/african-caribbean-cultural-dance-exchange`
+
 Event JSON shape (read.php):
 ```json
 {

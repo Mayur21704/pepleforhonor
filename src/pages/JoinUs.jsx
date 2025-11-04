@@ -5,9 +5,10 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
-import { Heart, Users, DollarSign, ArrowRight, Mail, Phone, MapPin } from "lucide-react";
+import { Heart, Users, DollarSign, ArrowRight, Mail, Phone, MapPin, ChevronLeft, ChevronRight, X } from "lucide-react";
 import UpcomingEvents from "@/components/UpcomingEvents";
 import { useState } from "react";
+import { Dialog, DialogContent } from "@/components/ui/dialog";
 
 const JoinUs = () => {
     const [formData, setFormData] = useState({
@@ -19,6 +20,58 @@ const JoinUs = () => {
     const [message, setMessage] = useState({ type: '', text: '' });
 
     const API_BASE = import.meta.env.VITE_API_BASE_URL || 'http://localhost:8000';
+
+    const [selectedImageIndex, setSelectedImageIndex] = useState(null);
+    const [isImageModalOpen, setIsImageModalOpen] = useState(false);
+
+    const communityImages = [
+        {
+            src: "https://peopleforhonor.com/wp-content/uploads/2024/11/IMG-20241126-WA0007.jpg",
+            alt: "Community hangout"
+        },
+        {
+            src: "https://peopleforhonor.com/wp-content/uploads/2024/11/IMG-20241126-WA0008.jpg",
+            alt: "Community gathering"
+        },
+        {
+            src: "https://peopleforhonor.com/wp-content/uploads/2024/11/IMG-20241126-WA0010.jpg",
+            alt: "Community event"
+        },
+        {
+            src: "https://peopleforhonor.com/wp-content/uploads/2024/11/IMG-20241126-WA0009.jpg",
+            alt: "Community members"
+        },
+        {
+            src: "https://peopleforhonor.com/wp-content/uploads/2024/11/IMG-20241126-WA0011.jpg",
+            alt: "Community activity"
+        },
+        {
+            src: "https://peopleforhonor.com/wp-content/uploads/2024/11/IMG-20241126-WA0005.jpg",
+            alt: "Community support"
+        }
+    ];
+
+    const openImageModal = (index) => {
+        setSelectedImageIndex(index);
+        setIsImageModalOpen(true);
+    };
+
+    const closeImageModal = () => {
+        setIsImageModalOpen(false);
+        setSelectedImageIndex(null);
+    };
+
+    const goToPrevious = () => {
+        setSelectedImageIndex((prev) =>
+            prev === 0 ? communityImages.length - 1 : prev - 1
+        );
+    };
+
+    const goToNext = () => {
+        setSelectedImageIndex((prev) =>
+            prev === communityImages.length - 1 ? 0 : prev + 1
+        );
+    };
 
     const ways = [
         {
@@ -284,6 +337,78 @@ const JoinUs = () => {
                         </div>
                     </div>
                 </section>
+
+                {/* Community Hangouts - Image Gallery */}
+                <section className="py-20 bg-muted/30">
+                    <div className="container mx-auto px-4">
+                        <div className="text-center mb-12">
+                            <h2 className="text-heading text-foreground mb-4">Community Hangouts</h2>
+                            <p className="text-subheading text-muted-foreground max-w-2xl mx-auto">
+                                At People for Honor, we believe in the power of hope to transform lives.
+                            </p>
+                        </div>
+
+                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                            {communityImages.map((image, index) => (
+                                <img
+                                    key={index}
+                                    src={image.src}
+                                    alt={image.alt}
+                                    className="w-full h-64 object-cover rounded-xl shadow-medium hover:shadow-strong transition-shadow duration-300 cursor-pointer"
+                                    onClick={() => openImageModal(index)}
+                                />
+                            ))}
+                        </div>
+                    </div>
+                </section>
+
+                {/* Image Modal/Slider */}
+                {isImageModalOpen && selectedImageIndex !== null && (
+                    <Dialog open={isImageModalOpen} onOpenChange={setIsImageModalOpen}>
+                        <DialogContent className="max-w-5xl p-0 overflow-hidden bg-black/95">
+                            <div className="relative">
+                                <img
+                                    src={communityImages[selectedImageIndex].src}
+                                    alt={communityImages[selectedImageIndex].alt}
+                                    className="w-full h-[70vh] object-contain"
+                                />
+
+                                {/* Navigation Buttons */}
+                                <button
+                                    onClick={goToPrevious}
+                                    className="absolute left-4 top-1/2 -translate-y-1/2 w-12 h-12 bg-white/10 hover:bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center transition-all"
+                                    aria-label="Previous image"
+                                >
+                                    <ChevronLeft className="h-6 w-6 text-white" />
+                                </button>
+
+                                <button
+                                    onClick={goToNext}
+                                    className="absolute right-4 top-1/2 -translate-y-1/2 w-12 h-12 bg-white/10 hover:bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center transition-all"
+                                    aria-label="Next image"
+                                >
+                                    <ChevronRight className="h-6 w-6 text-white" />
+                                </button>
+
+                                {/* Close Button */}
+                                <button
+                                    onClick={closeImageModal}
+                                    className="absolute top-4 right-4 w-10 h-10 bg-white/10 hover:bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center transition-all"
+                                    aria-label="Close"
+                                >
+                                    <X className="h-5 w-5 text-white" />
+                                </button>
+
+                                {/* Image Counter */}
+                                <div className="absolute bottom-4 left-1/2 -translate-x-1/2 bg-white/10 backdrop-blur-sm px-4 py-2 rounded-full">
+                                    <span className="text-white text-sm font-medium">
+                                        {selectedImageIndex + 1} / {communityImages.length}
+                                    </span>
+                                </div>
+                            </div>
+                        </DialogContent>
+                    </Dialog>
+                )}
             </main>
             <Footer />
         </div>

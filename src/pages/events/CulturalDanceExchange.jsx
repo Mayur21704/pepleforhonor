@@ -26,6 +26,11 @@ const CulturalDanceExchange = () => {
                 <section className="py-16">
                     <div className="container mx-auto px-4">
                         <div className="max-w-3xl mx-auto">
+                            <img
+                                src="https://peopleforhonor.com/wp-content/uploads/2025/08/Subheading-2-819x1024.png"
+                                alt="African Caribbean Cultural Dance Exchange"
+                                className="w-full h-auto rounded-xl shadow-medium mb-8"
+                            />
                             <Card className="bg-gradient-card border-0 shadow-medium">
                                 <CardHeader>
                                     <CardTitle className="text-2xl">Event Details</CardTitle>
@@ -68,6 +73,20 @@ const CulturalDanceExchange = () => {
                                     </div>
                                 </CardContent>
                             </Card>
+                        </div>
+                    </div>
+                </section>
+
+                {/* Testimonial */}
+                <section className="py-12 bg-muted/30">
+                    <div className="container mx-auto px-4">
+                        <div className="max-w-4xl mx-auto text-center">
+                            <p className="text-lg md:text-xl leading-relaxed text-muted-foreground mb-4">
+                                At People for Honor, we believe in the power of hope to transform lives.
+                            </p>
+                            <Button variant="link" className="text-primary hover:text-primary-hover font-semibold">
+                                READ MORE
+                            </Button>
                         </div>
                     </div>
                 </section>

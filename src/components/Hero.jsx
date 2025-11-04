@@ -13,7 +13,7 @@ const Hero = () => {
             {/* Background Image with Overlay */}
             <div className="absolute inset-0 z-0">
                 <img
-                    src={heroBg}
+                    src={"https://peopleforhonor.com/wp-content/uploads/2025/07/people-office-work-day-scaled.jpg"}
                     alt="People for Honor Community"
                     className="w-full h-full object-cover"
                 />

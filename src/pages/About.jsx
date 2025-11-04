@@ -2,6 +2,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Card, CardContent } from "@/components/ui/card";
 import { Heart, Users, Target, Award } from "lucide-react";
+import { Button } from "@/components/ui/button";
 
 const About = () => {
     const values = [
@@ -27,12 +28,6 @@ const About = () => {
         }
     ];
 
-    const stats = [
-        { number: "40+", label: "Lives Impacted" },
-        { number: "50+", label: "Events Done" },
-        { number: "15+", label: "Countries Represented" }
-    ];
-
     return (
         <div className="min-h-screen">
             <Header />
@@ -53,38 +48,26 @@ const About = () => {
                     </div>
                 </section>
 
-                {/* Values Section */}
-                <section className="py-20">
-                    <div className="container mx-auto px-4">
-                        <div className="text-center mb-16">
-                            <h2 className="text-heading text-foreground mb-4">Our Values</h2>
-                            <p className="text-subheading text-muted-foreground max-w-2xl mx-auto">
-                                Our values guide our actions and shape our organizational culture.
-                                They form the foundation of everything we do at People for Honor.
-                            </p>
-                        </div>
-
-                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-                            {values.map((value, index) => {
-                                const Icon = value.icon;
-                                return (
-                                    <Card key={index} className="text-center p-6 hover:shadow-strong transition-shadow duration-300">
-                                        <div className="w-16 h-16 bg-gradient-primary rounded-full flex items-center justify-center mx-auto mb-4">
-                                            <Icon className="h-8 w-8 text-primary-foreground" />
-                                        </div>
-                                        <h3 className="text-xl font-semibold mb-3 text-foreground">{value.title}</h3>
-                                        <p className="text-muted-foreground">{value.description}</p>
-                                    </Card>
-                                );
-                            })}
-                        </div>
-                    </div>
-                </section>
-
                 {/* Our Story */}
                 <section className="py-16">
                     <div className="container mx-auto px-4">
                         <div className="max-w-4xl mx-auto">
+                            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center mb-12">
+                                {/* Image 1 */}
+                                <img
+                                    src="https://peopleforhonor.com/wp-content/uploads/2024/02/Coaching-1.jpg"
+                                    alt="People for Honor coaching"
+                                    className="w-full h-80 object-cover rounded-xl shadow-medium"
+                                />
+
+                                {/* Image 2 */}
+                                <img
+                                    src="https://peopleforhonor.com/wp-content/uploads/2019/06/post-one.jpg"
+                                    alt="People for Honor community"
+                                    className="w-full h-80 object-cover rounded-xl shadow-medium"
+                                />
+                            </div>
+
                             <Card className="p-8 bg-gradient-card border-0 shadow-medium">
                                 <h2 className="text-heading text-foreground mb-4">Our Story</h2>
                                 <p className="text-body text-muted-foreground">
@@ -175,27 +158,26 @@ const About = () => {
                     </div>
                 </section>
 
-                {/* Stats Section */}
-                <section className="py-20">
+                {/* Get Involved */}
+                <section className="py-20 bg-muted/30">
                     <div className="container mx-auto px-4">
-                        <div className="text-center mb-12">
-                            <h2 className="text-heading text-foreground mb-4">Our Impact</h2>
-                            <p className="text-subheading text-muted-foreground">
-                                Join thousands of immigrants who have found needed help and community with People for Honor
-                            </p>
-                        </div>
-
-                        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-                            {stats.map((stat, index) => (
-                                <div key={index} className="text-center">
-                                    <div className="text-4xl md:text-5xl font-bold text-primary mb-2">
-                                        {stat.number}
-                                    </div>
-                                    <div className="text-lg font-medium text-muted-foreground">
-                                        {stat.label}
-                                    </div>
+                        <div className="max-w-4xl mx-auto">
+                            <Card className="p-8 md:p-12 bg-gradient-card border-0 shadow-strong text-center">
+                                <h2 className="text-heading text-foreground mb-4">Get Involved</h2>
+                                <p className="text-lg leading-relaxed text-muted-foreground mb-6">
+                                    Ready to join us in making a difference? There are many ways to get involved with People for Honour,
+                                    from volunteering your time to making a donation or spreading the word about our work. Together,
+                                    we can create a brighter, more hopeful future for all.
+                                </p>
+                                <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                                    <Button className="bg-gradient-primary hover:bg-primary-hover" asChild>
+                                        <a href="/join">Join Our Community</a>
+                                    </Button>
+                                    <Button variant="outline" asChild>
+                                        <a href="/programs">Explore Our Programs</a>
+                                    </Button>
                                 </div>
-                            ))}
+                            </Card>
                         </div>
                     </div>
                 </section>

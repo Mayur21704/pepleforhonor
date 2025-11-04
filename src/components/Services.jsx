@@ -2,10 +2,6 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Button } from "@/components/ui/button";
 import { Drawer, DrawerContent, DrawerDescription, DrawerHeader, DrawerTitle, DrawerTrigger } from "@/components/ui/drawer";
 import { Briefcase, Users, Target, Heart, ArrowRight, CheckCircle } from "lucide-react";
-import empowermentImg from "@/assets/empowerment.jpg";
-import mentorshipImg from "@/assets/mentorship.jpg";
-import coachingImg from "@/assets/coaching.jpg";
-import communityImg from "@/assets/community.jpg";
 
 const Services = () => {
     const services = [
@@ -14,7 +10,7 @@ const Services = () => {
             title: "Empowerment",
             description: "We provide hands-on workshops, resume support, job search guidance, and relevant resources to help you understand the job market & build confidence in interviews.",
             icon: Briefcase,
-            image: empowermentImg,
+            image: "https://peopleforhonor.com/wp-content/uploads/2019/05/students-studying-together-scaled.jpg",
             features: [
                 "Resume writing & optimization",
                 "Interview preparation",
@@ -27,7 +23,7 @@ const Services = () => {
             title: "Mentorship",
             description: "We connect newcomers with mentors who guide them through the unspoken rules of Canadian life; career development, professional culture, leadership skills, and personal growth.",
             icon: Users,
-            image: mentorshipImg,
+            image: "https://peopleforhonor.com/wp-content/uploads/2019/05/medium-shot-people-working-office-scaled.jpg",
             features: [
                 "One-on-one mentor matching",
                 "Cultural integration support",
@@ -40,7 +36,7 @@ const Services = () => {
             title: "Coaching",
             description: "We facilitate empowerment-focused group sessions and individual coaching that help participants build clarity, confidence, and emotional resilience.",
             icon: Target,
-            image: coachingImg,
+            image: "https://peopleforhonor.com/wp-content/uploads/2019/05/man-participation-training-after-being-hired-his-new-office-job-scaled.jpg",
             features: [
                 "Individual coaching sessions",
                 "Group empowerment workshops",
@@ -53,7 +49,7 @@ const Services = () => {
             title: "Culture & Community",
             description: "We host activities that bring people together because healing doesn't always come from a workshop; sometimes, it comes from dancing, laughing, or cooking a meal with people who understand your story.",
             icon: Heart,
-            image: communityImg,
+            image: "https://peopleforhonor.com/wp-content/uploads/2025/07/IMG_0070-scaled-e1751908347505.jpeg",
             features: [
                 "Cultural events & celebrations",
                 "Community gatherings",
@@ -214,25 +210,6 @@ const Services = () => {
                             </Card>
                         );
                     })}
-                </div>
-
-                {/* Call to Action */}
-                <div className="text-center mt-10 sm:mt-12 lg:mt-16 animate-fade-in">
-                    <div className="bg-gradient-primary rounded-xl sm:rounded-2xl p-6 sm:p-8 md:p-12 text-center">
-                        <h3 className="text-xl sm:text-2xl md:text-3xl font-bold text-primary-foreground mb-3 sm:mb-4 px-4">
-                            Ready to Begin Your Journey?
-                        </h3>
-                        <p className="text-sm sm:text-base text-primary-foreground/90 mb-4 sm:mb-6 max-w-2xl mx-auto px-4">
-                            Join thousands of immigrants who have found the help and community they needed with People for Honor.
-                        </p>
-                        <Button
-                            size="lg"
-                            className="bg-secondary hover:bg-secondary-hover text-secondary-foreground font-semibold px-6 sm:px-8 py-3 sm:py-4 text-sm sm:text-base w-full sm:w-auto"
-                        >
-                            Get Started Today
-                            <ArrowRight className="ml-2 h-4 w-4 sm:h-5 sm:w-5" />
-                        </Button>
-                    </div>
                 </div>
             </div>
         </section>

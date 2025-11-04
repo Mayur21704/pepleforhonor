@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Menu, X, Phone, Mail, MapPin } from "lucide-react";
-import { NavLink } from "react-router-dom";
+import { NavLink,Link } from "react-router-dom";
 
 const Header = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -44,15 +44,13 @@ const Header = () => {
             <nav className="container mx-auto px-4 py-4">
                 <div className="flex items-center justify-between">
                     {/* Logo */}
-                    <div className="flex items-center space-x-2">
-                        <div className="w-10 h-10 bg-gradient-primary rounded-full flex items-center justify-center">
-                            <span className="text-primary-foreground font-bold text-lg">P</span>
-                        </div>
-                        <div className="font-playfair">
-                            <h1 className="text-xl font-bold text-foreground">People for Honor</h1>
-                            <p className="text-xs text-muted-foreground">Empowering Lives, Building Futures</p>
-                        </div>
-                    </div>
+                    <NavLink to="/" className="flex items-center space-x-2 hover:opacity-80 transition-opacity">
+                        <img
+                            src="https://peopleforhonor.com/wp-content/uploads/2024/11/People-For-Honour-1.png"
+                            alt="People for Honor Logo"
+                            className="h-12 w-auto"
+                        />
+                    </NavLink>
 
                     {/* Desktop Navigation */}
                     <div className="hidden lg:flex items-center space-x-6">
@@ -68,7 +66,9 @@ const Header = () => {
                             </NavLink>
                         ))}
                         <Button className="bg-gradient-primary hover:bg-primary-hover">
+                            <Link to="/programs">
                             Get Support
+                            </Link>
                         </Button>
                     </div>
 
@@ -99,7 +99,9 @@ const Header = () => {
                                 </NavLink>
                             ))}
                             <Button className="bg-gradient-primary hover:bg-primary-hover mt-4">
+                                <Link to="/programs">
                                 Get Support
+                                </Link>
                             </Button>
                         </div>
                     </div>
