@@ -7,8 +7,19 @@ import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { Heart, Users, DollarSign, ArrowRight, Mail, Phone, MapPin } from "lucide-react";
 import UpcomingEvents from "@/components/UpcomingEvents";
+import { useState } from "react";
 
 const JoinUs = () => {
+    const [formData, setFormData] = useState({
+        email: '',
+        name: '',
+        interests: ''
+    });
+    const [isSubmitting, setIsSubmitting] = useState(false);
+    const [message, setMessage] = useState({ type: '', text: '' });
+
+    const API_BASE = import.meta.env.VITE_API_BASE_URL || 'http://localhost:8000';
+
     const ways = [
         {
             icon: Heart,
@@ -32,6 +43,52 @@ const JoinUs = () => {
             link: "#partner-form"
         }
     ];
+
+    const handleInputChange = (e) => {
+        const { id, value } = e.target;
+        setFormData(prev => ({
+            ...prev,
+            [id]: value
+        }));
+    };
+
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        setIsSubmitting(true);
+        setMessage({ type: '', text: '' });
+
+        try {
+            const response = await fetch(`${API_BASE}/api/join/submit.php`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(formData)
+            });
+
+            const data = await response.json();
+
+            if (data.success) {
+                setMessage({
+                    type: 'success',
+                    text: 'Thank you for joining us! We\'ll be in touch soon.'
+                });
+                setFormData({ email: '', name: '', interests: '' }); // Clear form
+            } else {
+                setMessage({
+                    type: 'error',
+                    text: data.message || 'Something went wrong. Please try again.'
+                });
+            }
+        } catch (error) {
+            setMessage({
+                type: 'error',
+                text: 'Unable to submit. Please check your connection and try again.'
+            });
+        } finally {
+            setIsSubmitting(false);
+        }
+    };
 
     return (
         <div className="min-h-screen">
@@ -124,7 +181,15 @@ const JoinUs = () => {
                                     </p>
                                 </div>
 
-                                <form className="space-y-4">
+                                <form onSubmit={handleSubmit} className="space-y-4">
+                                    {message.text && (
+                                        <div className={`p-3 rounded-md text-sm ${message.type === 'success'
+                                            ? 'bg-green-50 text-green-700 border border-green-200'
+                                            : 'bg-red-50 text-red-700 border border-red-200'
+                                            }`}>
+                                            {message.text}
+                                        </div>
+                                    )}
                                     <div>
                                         <Label htmlFor="email">Email Address *</Label>
                                         <Input
@@ -132,6 +197,8 @@ const JoinUs = () => {
                                             type="email"
                                             placeholder="your.email@example.com"
                                             className="w-full"
+                                            value={formData.email}
+                                            onChange={handleInputChange}
                                             required
                                         />
                                     </div>
@@ -142,6 +209,8 @@ const JoinUs = () => {
                                             type="text"
                                             placeholder="Your full name"
                                             className="w-full"
+                                            value={formData.name}
+                                            onChange={handleInputChange}
                                         />
                                     </div>
                                     <div>
@@ -151,10 +220,16 @@ const JoinUs = () => {
                                             placeholder="Tell us about your interests and how you'd like to contribute..."
                                             className="w-full"
                                             rows={4}
+                                            value={formData.interests}
+                                            onChange={handleInputChange}
                                         />
                                     </div>
-                                    <Button type="submit" className="w-full bg-gradient-primary hover:bg-primary-hover">
-                                        Join Our Community
+                                    <Button
+                                        type="submit"
+                                        className="w-full bg-gradient-primary hover:bg-primary-hover"
+                                        disabled={isSubmitting}
+                                    >
+                                        {isSubmitting ? 'Submitting...' : 'Join Our Community'}
                                         <ArrowRight className="ml-2 h-4 w-4" />
                                     </Button>
 

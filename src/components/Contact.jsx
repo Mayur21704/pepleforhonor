@@ -4,6 +4,9 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { Phone, Mail, MapPin, Clock, Send, Heart } from "lucide-react";
+import { useState } from "react";
+
+const API_BASE = import.meta.env.VITE_API_BASE_URL || 'http://localhost:8000';
 
 const Contact = () => {
     const contactInfo = [
@@ -32,6 +35,58 @@ const Contact = () => {
             description: "9:00 AM - 6:00 PM"
         }
     ];
+
+    // Form state
+    const [formData, setFormData] = useState({
+        firstName: '',
+        lastName: '',
+        email: '',
+        phone: '',
+        service: '',
+        message: ''
+    });
+    const [isSubmitting, setIsSubmitting] = useState(false);
+    const [notice, setNotice] = useState({ type: '', text: '' });
+
+    const handleInputChange = (e) => {
+        const { id, value } = e.target;
+        setFormData(prev => ({ ...prev, [id]: value }));
+    };
+
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        setIsSubmitting(true);
+        setNotice({ type: '', text: '' });
+
+        try {
+            const payload = {
+                first_name: formData.firstName,
+                last_name: formData.lastName,
+                email: formData.email,
+                phone: formData.phone || null,
+                service: formData.service || null,
+                message: formData.message,
+            };
+
+            const res = await fetch(`${API_BASE}/api/contact/submit.php`, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(payload)
+            });
+            const data = await res.json();
+
+            if (data.success) {
+                setNotice({ type: 'success', text: 'Thanks! Your message has been sent successfully.' });
+                setFormData({ firstName: '', lastName: '', email: '', phone: '', service: '', message: '' });
+            } else {
+                setNotice({ type: 'error', text: data.message || 'Unable to send your message. Please try again.' });
+            }
+        } catch (err) {
+            setNotice({ type: 'error', text: 'Network error. Please check your connection and try again.' });
+        } finally {
+            setIsSubmitting(false);
+        }
+    };
 
     return (
         <section id="contact" className="py-12 sm:py-16 lg:py-20 bg-muted/30">
@@ -108,7 +163,15 @@ const Contact = () => {
                                 </CardTitle>
                             </CardHeader>
                             <CardContent className="p-4 sm:p-6">
-                                <form className="space-y-4 sm:space-y-6">
+                                <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-6">
+                                    {notice.text && (
+                                        <div className={`p-3 rounded-md text-sm ${notice.type === 'success'
+                                                ? 'bg-green-50 text-green-700 border border-green-200'
+                                                : 'bg-red-50 text-red-700 border border-red-200'
+                                            }`}>
+                                            {notice.text}
+                                        </div>
+                                    )}
                                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
                                         <div className="space-y-2">
                                             <Label htmlFor="firstName" className="text-foreground font-medium text-sm">
@@ -119,6 +182,8 @@ const Contact = () => {
                                                 placeholder="Enter your first name"
                                                 className="border-border focus:border-primary focus:ring-primary/20 text-sm sm:text-base"
                                                 required
+                                                value={formData.firstName}
+                                                onChange={handleInputChange}
                                             />
                                         </div>
                                         <div className="space-y-2">
@@ -130,6 +195,8 @@ const Contact = () => {
                                                 placeholder="Enter your last name"
                                                 className="border-border focus:border-primary focus:ring-primary/20 text-sm sm:text-base"
                                                 required
+                                                value={formData.lastName}
+                                                onChange={handleInputChange}
                                             />
                                         </div>
                                     </div>
@@ -145,6 +212,8 @@ const Contact = () => {
                                                 placeholder="Enter your email"
                                                 className="border-border focus:border-primary focus:ring-primary/20 text-sm sm:text-base"
                                                 required
+                                                value={formData.email}
+                                                onChange={handleInputChange}
                                             />
                                         </div>
                                         <div className="space-y-2">
@@ -156,6 +225,8 @@ const Contact = () => {
                                                 type="tel"
                                                 placeholder="Enter your phone number"
                                                 className="border-border focus:border-primary focus:ring-primary/20 text-sm sm:text-base"
+                                                value={formData.phone}
+                                                onChange={handleInputChange}
                                             />
                                         </div>
                                     </div>
@@ -167,6 +238,8 @@ const Contact = () => {
                                         <select
                                             id="service"
                                             className="w-full px-3 py-2 border border-border rounded-md focus:border-primary focus:ring-primary/20 focus:outline-none bg-background text-foreground text-sm sm:text-base"
+                                            value={formData.service}
+                                            onChange={handleInputChange}
                                         >
                                             <option value="">Select a service...</option>
                                             <option value="empowerment">Employment Support</option>
@@ -187,6 +260,8 @@ const Contact = () => {
                                             rows={5}
                                             className="border-border focus:border-primary focus:ring-primary/20 text-sm sm:text-base"
                                             required
+                                            value={formData.message}
+                                            onChange={handleInputChange}
                                         />
                                     </div>
 
@@ -194,8 +269,9 @@ const Contact = () => {
                                         type="submit"
                                         size="lg"
                                         className="w-full bg-gradient-primary hover:bg-primary-hover text-primary-foreground font-semibold py-3 text-sm sm:text-base"
+                                        disabled={isSubmitting}
                                     >
-                                        Send Message
+                                        {isSubmitting ? 'Sending...' : 'Send Message'}
                                         <Send className="ml-2 h-4 w-4 sm:h-5 sm:w-5" />
                                     </Button>
                                 </form>
