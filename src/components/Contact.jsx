@@ -13,7 +13,7 @@ const Contact = () => {
         {
             icon: Phone,
             title: "Call Us",
-            details: "+1 613-672-7062",
+            details: "647 459 5384",
             description: "Mon - Fri: 9:00 AM - 6:00 PM"
         },
         {
@@ -166,8 +166,8 @@ const Contact = () => {
                                 <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-6">
                                     {notice.text && (
                                         <div className={`p-3 rounded-md text-sm ${notice.type === 'success'
-                                                ? 'bg-green-50 text-green-700 border border-green-200'
-                                                : 'bg-red-50 text-red-700 border border-red-200'
+                                            ? 'bg-green-50 text-green-700 border border-green-200'
+                                            : 'bg-red-50 text-red-700 border border-red-200'
                                             }`}>
                                             {notice.text}
                                         </div>
@@ -242,10 +242,12 @@ const Contact = () => {
                                             onChange={handleInputChange}
                                         >
                                             <option value="">Select a service...</option>
-                                            <option value="empowerment">Employment Support</option>
+                                            <option value="barbershop">Barbershop Training</option>
+                                            <option value="sewing">Sewing for Beginners</option>
+                                            <option value="entrepreneurship">Entrepreneurship Launchpad</option>
+                                            <option value="dance">Cultural Dance & Movement</option>
+                                            <option value="coaching">Coaching Program</option>
                                             <option value="mentorship">Mentorship Program</option>
-                                            <option value="coaching">Personal Coaching</option>
-                                            <option value="community">Culture & Community</option>
                                             <option value="general">General Inquiry</option>
                                         </select>
                                     </div>

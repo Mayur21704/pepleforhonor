@@ -8,23 +8,23 @@ const About = () => {
     const values = [
         {
             icon: Heart,
-            title: "Inherent Potential",
-            description: "We believe everyone has the inherent potential to thrive and live a fulfilled life."
+            title: "Think Big",
+            description: "We empower newcomers to dream boldly and pursue their goals with confidence."
         },
         {
             icon: Users,
-            title: "Community Strength",
-            description: "Giving back to your community strengthens those around you and helps you flourish personally."
+            title: "Belong Fully",
+            description: "We create spaces where cultural pride meets Canadian community, fostering true belonging."
         },
         {
             icon: Target,
-            title: "Connected Growth",
-            description: "We recognize that we are all connected—sowing seeds today for future generations."
+            title: "Give Back",
+            description: "We inspire individuals to lift the next generation, strengthening communities together."
         },
         {
             icon: Award,
-            title: "Self Worth",
-            description: "Knowing your own worth enables you to better value others and contribute meaningfully."
+            title: "No Judgment",
+            description: "We listen first, remove barriers, and celebrate every milestone with dignity and respect."
         }
     ];
 
@@ -40,15 +40,13 @@ const About = () => {
                                 About People for Honor
                             </h1>
                             <p className="text-xl leading-relaxed opacity-90">
-                                At People for Honor, we believe every immigrant deserves more than just a fresh start,
-                                they deserve to belong. We're building a community in Ottawa where newcomers feel seen,
-                                supported, and empowered to thrive.
+                                "Honor" isn't just our name. It's how we show up—for ourselves, for each other, and for the country we call home.
                             </p>
                         </div>
                     </div>
                 </section>
 
-                {/* Our Story */}
+                {/* The Founder's Story */}
                 <section className="py-16">
                     <div className="container mx-auto px-4">
                         <div className="max-w-4xl mx-auto">
@@ -69,29 +67,74 @@ const About = () => {
                             </div>
 
                             <Card className="p-8 bg-gradient-card border-0 shadow-medium">
-                                <h2 className="text-heading text-foreground mb-4">Our Story</h2>
-                                <p className="text-body text-muted-foreground">
-                                    At People for Honor we provide Empowerment workshops, coaching and mentoring for Black women, men and youth
-                                    (Anglophone and Francophone) as well as one-on-one coaching and mentoring to support mental well-being and
-                                    social and economic integration into Canada.
+                                <h2 className="text-heading text-foreground mb-6">The Founder's Story</h2>
+                                <div className="space-y-4 text-muted-foreground">
+                                    <p className="text-lg leading-relaxed">
+                                        Mr. Francis is a well-established businessman with a master's degree in engineering who made Canada his home years ago. As a newcomer, he learned firsthand how complex migration can be—navigating new systems, accents, workplace culture, and unfamiliar terrain. Those early experiences shaped a simple conviction: <strong className="text-foreground">no one should have to do it alone.</strong>
+                                    </p>
+                                    <p className="text-lg leading-relaxed">
+                                        Seeing friends and neighbours face the same hurdles, Mr. Francis set out to build a community space where people, new immigrants in particular, could find practical support without judgment. That vision became People for Honor: a welcoming hub where newcomers access guidance, skills, and encouragement to move forward with confidence.
+                                    </p>
+                                    <p className="text-lg leading-relaxed">
+                                        For Mr. Francis, Canada is a home away from home—a place that invited him to contribute and belong. He believes true belonging comes from being empowered with knowledge, grounded in cultural pride, and committed to giving back. Under his leadership, People for Honor pairs hands-on programs with a culture of dignity: we listen first, remove barriers, and celebrate every milestone, from a first résumé to a first promotion.
+                                    </p>
+                                    <p className="text-lg leading-relaxed">
+                                        Proudly Nigerian-Canadian, Mr. Francis measures success not just by individual outcomes but by what we build together—strong families, connected neighbourhoods, and opportunities that last. His aim is a living legacy: communities of belonging and fully empowered people who will lift the next generation, just as others once lifted him.
+                                    </p>
+                                </div>
+                            </Card>
+                        </div>
+                    </div>
+                </section>
+
+                {/* Who We Are */}
+                <section className="py-20 bg-muted/30">
+                    <div className="container mx-auto px-4">
+                        <div className="max-w-4xl mx-auto">
+                            <Card className="p-8 md:p-12 bg-gradient-card border-0 shadow-strong">
+                                <h2 className="text-heading text-foreground mb-6">Who We Are</h2>
+                                <p className="text-lg leading-relaxed text-muted-foreground mb-8">
+                                    At People for Honor, there's no judgment—only community lifting community. We serve women, men, and youth (Anglophone and Francophone) with culturally grounded workshops, coaching, and mentorship that spark confidence, protect mental well-being, and open doors to work, school, and community life in Canada.
                                 </p>
+                                <p className="text-lg leading-relaxed text-muted-foreground mb-8">
+                                    Our programs are built on the idea that we can <strong className="text-foreground">think big, belong fully, and give back.</strong>
+                                </p>
+
+                                {/* Core Values Grid */}
+                                <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-8">
+                                    {values.map((value, index) => {
+                                        const Icon = value.icon;
+                                        return (
+                                            <div key={index} className="flex items-start gap-4 p-4 bg-background/50 rounded-lg">
+                                                <div className="w-12 h-12 bg-gradient-primary rounded-full flex items-center justify-center flex-shrink-0">
+                                                    <Icon className="h-6 w-6 text-primary-foreground" />
+                                                </div>
+                                                <div>
+                                                    <h3 className="font-semibold text-foreground mb-2">{value.title}</h3>
+                                                    <p className="text-muted-foreground text-sm">{value.description}</p>
+                                                </div>
+                                            </div>
+                                        );
+                                    })}
+                                </div>
                             </Card>
                         </div>
                     </div>
                 </section>
 
                 {/* Mission Statement */}
-                <section className="py-20 bg-muted/30">
+                <section className="py-16">
                     <div className="container mx-auto px-4">
                         <div className="max-w-4xl mx-auto">
-                            <Card className="p-8 md:p-12 bg-gradient-card border-0 shadow-strong">
+                            <Card className="p-8 md:p-12 bg-gradient-card border-0 shadow-medium">
                                 <div className="text-center">
                                     <h2 className="text-heading text-foreground mb-2">Our Mission</h2>
                                     <p className="text-lg font-semibold text-foreground mb-6">Empowering Lives, Restoring Hope</p>
                                     <p className="text-lg leading-relaxed text-muted-foreground mb-8">
-                                        We recognize the strength, purpose, and potential each person carries, and we walk
-                                        alongside them as they rebuild, rediscover, and rise into the best version of
-                                        themselves with dignity, not just survival.
+                                        Our mission is to equip individuals with the tools, support, and resources to overcome challenges,
+                                        achieve their goals, and build a brighter future in Canada. We recognize the strength, purpose, and
+                                        potential each person carries, and we walk alongside them as they rebuild, rediscover, and rise into
+                                        the best version of themselves with dignity, not just survival.
                                     </p>
                                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6 text-left">
                                         <div className="flex items-start gap-3">
@@ -117,61 +160,132 @@ const About = () => {
                     </div>
                 </section>
 
-                {/* Our Impact (Detailed) */}
+                {/* Our Vision */}
+                <section className="py-20 bg-muted/30">
+                    <div className="container mx-auto px-4">
+                        <div className="max-w-4xl mx-auto">
+                            <Card className="p-8 md:p-12 bg-gradient-card border-0 shadow-strong">
+                                <div className="text-center">
+                                    <h2 className="text-heading text-foreground mb-6">Our Vision</h2>
+                                    <p className="text-xl leading-relaxed text-muted-foreground">
+                                        A safe, welcoming space where people continuously learn and grow, feel empowered to take
+                                        the next step, and can always show up as their full selves.
+                                    </p>
+                                </div>
+                            </Card>
+                        </div>
+                    </div>
+                </section>
+
+                {/* Who We Serve & What We Do */}
                 <section className="py-16">
                     <div className="container mx-auto px-4">
                         <div className="max-w-4xl mx-auto">
-                            <Card className="p-8 bg-gradient-card border-0 shadow-medium">
-                                <h2 className="text-heading text-foreground mb-4">Our Impact</h2>
-                                <ul className="space-y-3 text-muted-foreground">
-                                    <li className="flex items-start gap-2">
-                                        <div className="w-2 h-2 bg-primary rounded-full mt-2"></div>
-                                        Displaced students who found their career focus.
-                                    </li>
-                                    <li className="flex items-start gap-2">
-                                        <div className="w-2 h-2 bg-primary rounded-full mt-2"></div>
-                                        Incarcerated or recently released individuals who experienced enhanced self-esteem.
-                                    </li>
-                                    <li className="flex items-start gap-2">
-                                        <div className="w-2 h-2 bg-primary rounded-full mt-2"></div>
-                                        Youths seeking clarity of vision about their future.
-                                    </li>
-                                    <li className="flex items-start gap-2">
-                                        <div className="w-2 h-2 bg-primary rounded-full mt-2"></div>
-                                        Individuals struggling with addiction.
-                                    </li>
-                                    <li className="flex items-start gap-2">
-                                        <div className="w-2 h-2 bg-primary rounded-full mt-2"></div>
-                                        Women who have experienced domestic violence.
-                                    </li>
-                                    <li className="flex items-start gap-2">
-                                        <div className="w-2 h-2 bg-primary rounded-full mt-2"></div>
-                                        Individuals dealing with anxiety, depression, and emotional overwhelm.
-                                    </li>
-                                    <li className="flex items-start gap-2">
-                                        <div className="w-2 h-2 bg-primary rounded-full mt-2"></div>
-                                        Unemployed or underemployed youth.
-                                    </li>
-                                </ul>
+                            <Card className="p-8 md:p-12 bg-gradient-card border-0 shadow-medium">
+                                <h2 className="text-heading text-foreground mb-8 text-center">Who We Serve & What We Do</h2>
+
+                                <div className="space-y-6">
+                                    <div className="bg-background/50 p-6 rounded-lg">
+                                        <h3 className="text-lg font-semibold text-foreground mb-3 flex items-center gap-2">
+                                            <Users className="h-5 w-5 text-primary" />
+                                            Who We Serve
+                                        </h3>
+                                        <p className="text-muted-foreground leading-relaxed">
+                                            Newcomers and long-time residents seeking community, confidence, and practical pathways to opportunity.
+                                        </p>
+                                    </div>
+
+                                    <div className="bg-background/50 p-6 rounded-lg">
+                                        <h3 className="text-lg font-semibold text-foreground mb-3 flex items-center gap-2">
+                                            <Heart className="h-5 w-5 text-primary" />
+                                            How We Help
+                                        </h3>
+                                        <p className="text-muted-foreground leading-relaxed">
+                                            Culturally responsive workshops, one-on-one coaching, and mentorship (EN/FR), plus warm referrals
+                                            and navigation support for employment, education, and wellness resources.
+                                        </p>
+                                    </div>
+                                </div>
+                            </Card>
+                        </div>
+                    </div>
+                </section>
+
+                {/* Our Core Values */}
+                <section className="py-16">
+                    <div className="container mx-auto px-4">
+                        <div className="max-w-4xl mx-auto">
+                            <Card className="p-8 md:p-12 bg-gradient-card border-0 shadow-medium">
+                                <h2 className="text-heading text-foreground mb-8 text-center">Our Core Values</h2>
+
+                                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                    <div className="bg-background/50 p-6 rounded-lg border-l-4 border-primary">
+                                        <div className="flex items-start gap-3">
+                                            <div className="w-3 h-3 bg-primary rounded-full mt-1 flex-shrink-0"></div>
+                                            <div>
+                                                <h3 className="font-semibold text-foreground mb-2 text-lg">Inherent Potential</h3>
+                                                <p className="text-muted-foreground">
+                                                    Everyone has the capacity to thrive and live a fulfilled life.
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div className="bg-background/50 p-6 rounded-lg border-l-4 border-primary">
+                                        <div className="flex items-start gap-3">
+                                            <div className="w-3 h-3 bg-primary rounded-full mt-1 flex-shrink-0"></div>
+                                            <div>
+                                                <h3 className="font-semibold text-foreground mb-2 text-lg">Self-Worth & Respect</h3>
+                                                <p className="text-muted-foreground">
+                                                    Knowing your own worth helps you value others.
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div className="bg-background/50 p-6 rounded-lg border-l-4 border-primary">
+                                        <div className="flex items-start gap-3">
+                                            <div className="w-3 h-3 bg-primary rounded-full mt-1 flex-shrink-0"></div>
+                                            <div>
+                                                <h3 className="font-semibold text-foreground mb-2 text-lg">Giving Back</h3>
+                                                <p className="text-muted-foreground">
+                                                    Contributing to your community strengthens both giver and community.
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div className="bg-background/50 p-6 rounded-lg border-l-4 border-primary">
+                                        <div className="flex items-start gap-3">
+                                            <div className="w-3 h-3 bg-primary rounded-full mt-1 flex-shrink-0"></div>
+                                            <div>
+                                                <h3 className="font-semibold text-foreground mb-2 text-lg">Interconnectedness & Legacy</h3>
+                                                <p className="text-muted-foreground">
+                                                    We are all connected; we plant seeds today so future generations may rest in the shade of tomorrow's trees.
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             </Card>
                         </div>
                     </div>
                 </section>
 
                 {/* Get Involved */}
-                <section className="py-20 bg-muted/30">
+                <section className="py-20">
                     <div className="container mx-auto px-4">
                         <div className="max-w-4xl mx-auto">
                             <Card className="p-8 md:p-12 bg-gradient-card border-0 shadow-strong text-center">
                                 <h2 className="text-heading text-foreground mb-4">Get Involved</h2>
                                 <p className="text-lg leading-relaxed text-muted-foreground mb-6">
-                                    Ready to join us in making a difference? There are many ways to get involved with People for Honour,
+                                    Ready to join us in making a difference? There are many ways to get involved with People for Honor,
                                     from volunteering your time to making a donation or spreading the word about our work. Together,
                                     we can create a brighter, more hopeful future for all.
                                 </p>
                                 <div className="flex flex-col sm:flex-row gap-4 justify-center">
                                     <Button className="bg-gradient-primary hover:bg-primary-hover" asChild>
-                                        <a href="/join">Join Our Community</a>
+                                        <a href="/join">Ways to Give</a>
                                     </Button>
                                     <Button variant="outline" asChild>
                                         <a href="/programs">Explore Our Programs</a>

@@ -290,12 +290,11 @@ const Gallery = () => {
                     <div className="container mx-auto px-4">
                         <div className="max-w-4xl mx-auto text-center">
                             <h1 className="text-4xl md:text-5xl font-bold mb-6">
-                                Our Gallery
+                                Our Community Voice
                             </h1>
                             <p className="text-xl leading-relaxed opacity-90">
-                                At People for Honor, we believe in the power of hope to transform lives.
-                                See the impact we're making in our community through workshops, cultural events,
-                                and meaningful connections that help newcomers thrive in Canada.
+                                Real voices. Real stories. Our community is at the heart of everything we do, built by them, for them.
+                                Explore the videos and images below to hear their stories and experiences of our community members.
                             </p>
                         </div>
                     </div>

@@ -13,6 +13,12 @@ import ContactPage from "./pages/ContactPage";
 import NotFound from "./pages/NotFound";
 import CultureCommunity from "./pages/programs/CultureCommunity";
 import EmpowermentMentorship from "./pages/programs/EmpowermentMentorship";
+import BarbershopTraining from "./pages/programs/BarbershopTraining";
+import SewingBeginners from "./pages/programs/SewingBeginners";
+import EntrepreneurshipLaunchpad from "./pages/programs/EntrepreneurshipLaunchpad";
+import CulturalDance from "./pages/programs/CulturalDance";
+import CoachingProgram from "./pages/programs/CoachingProgram";
+import MentorshipProgram from "./pages/programs/MentorshipProgram";
 import EventDetail from "./pages/EventDetail";
 
 const queryClient = new QueryClient();
@@ -39,8 +45,12 @@ const App = () => (
                     <Route path="/about" element={<About />} />
                     <Route path="/programs" element={<Programs />} />
                     <Route path="/programs/empowerment" element={<EmpowermentMentorship />} />
-                    <Route path="/programs/mentorship" element={<EmpowermentMentorship />} />
-                    <Route path="/programs/coaching" element={<EmpowermentMentorship />} />
+                    <Route path="/programs/mentorship" element={<MentorshipProgram />} />
+                    <Route path="/programs/coaching" element={<CoachingProgram />} />
+                    <Route path="/programs/barbershop-training" element={<BarbershopTraining />} />
+                    <Route path="/programs/sewing-beginners" element={<SewingBeginners />} />
+                    <Route path="/programs/entrepreneurship-launchpad" element={<EntrepreneurshipLaunchpad />} />
+                    <Route path="/programs/cultural-dance" element={<CulturalDance />} />
                     <Route path="/service/culture-and-community-ottawa-program" element={<CultureCommunity />} />
                     <Route path="/programs/culture-community" element={<Navigate to="/service/culture-and-community-ottawa-program" replace />} />
                     {/* Dynamic event detail routes */}

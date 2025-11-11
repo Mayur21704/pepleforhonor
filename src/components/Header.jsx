@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Menu, X, Phone, Mail, MapPin } from "lucide-react";
-import { NavLink,Link } from "react-router-dom";
+import { NavLink, Link } from "react-router-dom";
 
 const Header = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -9,11 +9,10 @@ const Header = () => {
     const navItems = [
         { name: "Home", href: "/" },
         { name: "About Us", href: "/about" },
-        { name: "Join Us", href: "/join" },
-        { name: "Gallery", href: "/gallery" },
+        { name: "Our Programs", href: "/programs" },
+        { name: "Our Community Voice", href: "/gallery" },
+        { name: "Ways to Give", href: "/join" },
         { name: "Contact Us", href: "/contact" },
-        { name: "Programs", href: "/programs" },
-        { name: "Culture & Community", href: "/service/culture-and-community-ottawa-program" },
     ];
 
     return (
@@ -67,7 +66,7 @@ const Header = () => {
                         ))}
                         <Button className="bg-gradient-primary hover:bg-primary-hover">
                             <Link to="/programs">
-                            Get Support
+                                Get Support
                             </Link>
                         </Button>
                     </div>
@@ -100,7 +99,7 @@ const Header = () => {
                             ))}
                             <Button className="bg-gradient-primary hover:bg-primary-hover mt-4">
                                 <Link to="/programs">
-                                Get Support
+                                    Get Support
                                 </Link>
                             </Button>
                         </div>
