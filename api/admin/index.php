@@ -1,3 +1,7 @@
+<?php
+// Protect this page with authentication
+require_once 'check_auth.php';
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -20,10 +24,34 @@
             max-width: 1200px;
             margin: 0 auto;
         }
+        .header-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+        }
         h1 {
             color: white;
-            margin-bottom: 30px;
-            text-align: center;
+            margin: 0;
+        }
+        .user-info {
+            color: white;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        .logout-btn {
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            padding: 8px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-size: 14px;
+            transition: all 0.3s;
+        }
+        .logout-btn:hover {
+            background: rgba(255, 255, 255, 0.3);
         }
         .card {
             background: white;
@@ -146,12 +174,22 @@
             .event-actions {
                 margin-top: 10px;
             }
+            .header-bar {
+                flex-direction: column;
+                gap: 15px;
+            }
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>📅 Event Management Admin</h1>
+        <div class="header-bar">
+            <h1>📅 Event Management Admin</h1>
+            <div class="user-info">
+                <span>👤 <?php echo htmlspecialchars($_SESSION['admin_username']); ?></span>
+                <a href="logout.php" class="logout-btn">🚪 Logout</a>
+            </div>
+        </div>
         
         <div class="card">
             <h2 id="form-title">Add New Event</h2>
@@ -205,7 +243,7 @@
     </div>
 
     <script>
-        const API_BASE = '/api/events';
+        const API_BASE = '../events';
         let editingId = null;
 
         // Load events on page load

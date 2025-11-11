@@ -279,27 +279,6 @@ const Contact = () => {
                         </Card>
                     </div>
                 </div>
-
-                {/* Map or Additional CTA */}
-                <div className="mt-10 sm:mt-12 lg:mt-16 text-center animate-fade-in">
-                    <Card className="bg-gradient-secondary border-0 shadow-medium">
-                        <CardContent className="p-6 sm:p-8 md:p-12">
-                            <h3 className="text-xl sm:text-2xl md:text-3xl font-bold text-secondary-foreground mb-3 sm:mb-4 px-4">
-                                Join Our Community Today
-                            </h3>
-                            <p className="text-sm sm:text-base text-secondary-foreground/80 mb-4 sm:mb-6 max-w-2xl mx-auto px-4">
-                                Take the first step towards building your successful life in Canada.
-                                We're here to support you every step of the way.
-                            </p>
-                            <Button
-                                size="lg"
-                                className="bg-primary hover:bg-primary-hover text-primary-foreground font-semibold px-6 sm:px-8 py-3 sm:py-4 text-sm sm:text-base w-full sm:w-auto"
-                            >
-                                Schedule a Free Consultation
-                            </Button>
-                        </CardContent>
-                    </Card>
-                </div>
             </div>
         </section>
     );

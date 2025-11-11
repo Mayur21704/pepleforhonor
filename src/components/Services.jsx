@@ -2,6 +2,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Button } from "@/components/ui/button";
 import { Drawer, DrawerContent, DrawerDescription, DrawerHeader, DrawerTitle, DrawerTrigger } from "@/components/ui/drawer";
 import { Briefcase, Users, Target, Heart, ArrowRight, CheckCircle } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const Services = () => {
     const services = [
@@ -11,6 +12,7 @@ const Services = () => {
             description: "We provide hands-on workshops, resume support, job search guidance, and relevant resources to help you understand the job market & build confidence in interviews.",
             icon: Briefcase,
             image: "https://peopleforhonor.com/wp-content/uploads/2019/05/students-studying-together-scaled.jpg",
+            url: "/programs/empowerment",
             features: [
                 "Resume writing & optimization",
                 "Interview preparation",
@@ -24,6 +26,7 @@ const Services = () => {
             description: "We connect newcomers with mentors who guide them through the unspoken rules of Canadian life; career development, professional culture, leadership skills, and personal growth.",
             icon: Users,
             image: "https://peopleforhonor.com/wp-content/uploads/2019/05/medium-shot-people-working-office-scaled.jpg",
+            url: "/programs/mentorship",
             features: [
                 "One-on-one mentor matching",
                 "Cultural integration support",
@@ -37,6 +40,7 @@ const Services = () => {
             description: "We facilitate empowerment-focused group sessions and individual coaching that help participants build clarity, confidence, and emotional resilience.",
             icon: Target,
             image: "https://peopleforhonor.com/wp-content/uploads/2019/05/man-participation-training-after-being-hired-his-new-office-job-scaled.jpg",
+            url: "/programs/coaching",
             features: [
                 "Individual coaching sessions",
                 "Group empowerment workshops",
@@ -50,6 +54,7 @@ const Services = () => {
             description: "We host activities that bring people together because healing doesn't always come from a workshop; sometimes, it comes from dancing, laughing, or cooking a meal with people who understand your story.",
             icon: Heart,
             image: "https://peopleforhonor.com/wp-content/uploads/2025/07/IMG_0070-scaled-e1751908347505.jpeg",
+            url: "/service/culture-and-community-ottawa-program",
             features: [
                 "Cultural events & celebrations",
                 "Community gatherings",
@@ -197,9 +202,11 @@ const Services = () => {
                                                             ))}
                                                         </ul>
                                                         <div className="mt-4 sm:mt-6">
-                                                            <Button className="w-full bg-gradient-primary hover:bg-primary-hover text-sm sm:text-base">
-                                                                Get Started with {service.title}
-                                                            </Button>
+                                                            <Link to={service.url}>
+                                                                <Button className="w-full bg-gradient-primary hover:bg-primary-hover text-sm sm:text-base">
+                                                                    Get Started with {service.title}
+                                                                </Button>
+                                                            </Link>
                                                         </div>
                                                     </div>
                                                 </div>

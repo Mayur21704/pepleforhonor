@@ -158,9 +158,11 @@ const JoinUs = () => {
                                 Be part of a community that believes in the potential of every immigrant.
                                 Together, we can create lasting change and build a more inclusive Canada.
                             </p>
-                            <Button size="lg" className="bg-secondary hover:bg-secondary-hover text-secondary-foreground">
-                                Get Involved Today
-                                <ArrowRight className="ml-2 h-5 w-5" />
+                            <Button size="lg" className="bg-secondary hover:bg-secondary-hover text-secondary-foreground" asChild>
+                                <a href="#join-community">
+                                    Get Involved Today
+                                    <ArrowRight className="ml-2 h-5 w-5" />
+                                </a>
                             </Button>
                             {/* Live site tagline */}
                             <div className="mt-6 bg-background/10 backdrop-blur-sm rounded-xl p-4">
@@ -170,7 +172,7 @@ const JoinUs = () => {
                                 </p>
                             </div>
                             <div className="mt-4 flex justify-center">
-                                <Button size="lg" variant="outline" asChild>
+                                <Button size="lg" variant="outline" asChild className="bg-white hover:bg-white/90 text-black border-white">
                                     <a href="https://chat.whatsapp.com/HSUmX0TTqpxDEIkJWZXRMv" target="_blank" rel="noopener noreferrer" aria-label="Join us on WhatsApp">
                                         Join us on WhatsApp
                                     </a>
@@ -180,48 +182,11 @@ const JoinUs = () => {
                     </div>
                 </section>
 
-                {/* Ways to Join */}
-                <section className="py-20">
-                    <div className="container mx-auto px-4">
-                        <div className="text-center mb-16">
-                            <h2 className="text-heading text-foreground mb-4">Ways to Get Involved</h2>
-                            <p className="text-subheading text-muted-foreground max-w-2xl mx-auto">
-                                There are many ways to support our mission and make a difference in the lives of newcomers to Canada.
-                            </p>
-                        </div>
-
-                        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
-                            {ways.map((way, index) => {
-                                const Icon = way.icon;
-                                return (
-                                    <Card key={index} id={way.link ? way.link.replace('#', '') : undefined} className="text-center p-6 hover:shadow-strong transition-shadow duration-300">
-                                        <div className="w-16 h-16 bg-gradient-primary rounded-full flex items-center justify-center mx-auto mb-4">
-                                            <Icon className="h-8 w-8 text-primary-foreground" />
-                                        </div>
-                                        <CardHeader className="pb-4">
-                                            <CardTitle className="text-xl mb-2">{way.title}</CardTitle>
-                                            <CardDescription className="text-base leading-relaxed">
-                                                {way.description}
-                                            </CardDescription>
-                                        </CardHeader>
-                                        <CardContent>
-                                            <Button className="w-full bg-gradient-primary hover:bg-primary-hover">
-                                                {way.action}
-                                                <ArrowRight className="ml-2 h-4 w-4" />
-                                            </Button>
-                                        </CardContent>
-                                    </Card>
-                                );
-                            })}
-                        </div>
-                    </div>
-                </section>
-
                 {/* Upcoming Events on Join Us */}
                 <UpcomingEvents />
 
                 {/* Newsletter Section */}
-                <section className="py-20 bg-muted/30">
+                <section id="join-community" className="py-20 bg-muted/30">
                     <div className="container mx-auto px-4">
                         <div className="max-w-2xl mx-auto">
                             <Card className="p-8 bg-gradient-card border-0 shadow-strong">

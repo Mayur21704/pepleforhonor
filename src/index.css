@@ -151,7 +151,7 @@ All colors MUST be HSL for proper theming support.
   }
   
   html {
-    scroll-behavior: smooth;
+    /* scroll-behavior: smooth; */
   }
 }
 
