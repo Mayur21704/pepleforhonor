@@ -54,7 +54,7 @@ npm install
 2) Configure environment variables
 - Frontend (Vite): `honor-forge-webapp/.env.development`
 ```bash
-VITE_API_BASE_URL=http://localhost:8000
+VITE_API_BASE_URL=
 ```
 - Backend (PHP API): `honor-forge-webapp/api/.env`
 ```bash
