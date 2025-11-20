@@ -178,6 +178,23 @@ require_once 'check_auth.php';
                 flex-direction: column;
                 gap: 15px;
             }
+
+            /* Add this inside your <style> tag */
+.cta-preview {
+    display: inline-block;
+    background: #e9ecef;
+    color: #495057;
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-size: 12px;
+    margin-right: 5px;
+    border: 1px solid #dee2e6;
+    text-decoration: none;
+}
+.cta-preview:hover {
+    background: #dee2e6;
+    text-decoration: underline;
+}
         }
     </style>
 </head>
@@ -228,6 +245,22 @@ require_once 'check_auth.php';
                             <option value="inactive">Inactive</option>
                         </select>
                     </div>
+                   <div class="form-group">
+    <label for="cta1_label">Primary Button Text (optional)</label>
+    <input type="text" id="cta1_label" placeholder="e.g., Register to Attend">
+</div>
+<div class="form-group">
+    <label for="cta1_url">Primary Button Link (optional)</label>
+    <input type="text" id="cta1_url" placeholder="https://...">
+</div>
+<div class="form-group">
+    <label for="cta2_label">Secondary Button Text (optional)</label>
+    <input type="text" id="cta2_label" placeholder="e.g., Register to Pitch">
+</div>
+<div class="form-group">
+    <label for="cta2_url">Secondary Button Link (optional)</label>
+    <input type="text" id="cta2_url" placeholder="https://...">
+</div>
                 </div>
                 <button type="submit" id="submit-btn">Add Event</button>
                 <button type="button" id="cancel-btn" style="display:none; margin-left: 10px; background: #6c757d;">Cancel</button>
@@ -253,15 +286,19 @@ require_once 'check_auth.php';
         document.getElementById('event-form').addEventListener('submit', async (e) => {
             e.preventDefault();
             
-            const eventData = {
-                title: document.getElementById('title').value,
-                event_date: document.getElementById('event_date').value,
-                event_time: document.getElementById('event_time').value || null,
-                location: document.getElementById('location').value || null,
-                description: document.getElementById('description').value || null,
-                link: document.getElementById('link').value || null,
-                status: document.getElementById('status').value
-            };
+          const eventData = {
+  title: document.getElementById('title').value,
+  event_date: document.getElementById('event_date').value,
+  event_time: document.getElementById('event_time').value || null,
+  location: document.getElementById('location').value || null,
+  description: document.getElementById('description').value || null,
+  link: document.getElementById('link').value || null, // keep if you still want it
+  cta1_label: document.getElementById('cta1_label').value || null,
+  cta1_url: document.getElementById('cta1_url').value || null,
+  cta2_label: document.getElementById('cta2_label').value || null,
+  cta2_url: document.getElementById('cta2_url').value || null,
+  status: document.getElementById('status').value,
+};
 
             try {
                 let url = `${API_BASE}/create.php`;
@@ -361,6 +398,10 @@ require_once 'check_auth.php';
                     document.getElementById('description').value = event.description || '';
                     document.getElementById('link').value = event.link || '';
                     document.getElementById('status').value = event.status;
+                    document.getElementById('cta1_label').value = event.cta1_label || '';
+                    document.getElementById('cta1_url').value = event.cta1_url || '';
+                    document.getElementById('cta2_label').value = event.cta2_label || '';
+                    document.getElementById('cta2_url').value = event.cta2_url || '';
                     
                     document.getElementById('form-title').textContent = 'Edit Event';
                     document.getElementById('submit-btn').textContent = 'Update Event';

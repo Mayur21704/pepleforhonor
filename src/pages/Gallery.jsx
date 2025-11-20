@@ -322,11 +322,6 @@ const Gallery = () => {
 
                                 <TabsContent value="all" className="mt-8">
                                     <div className="mb-12">
-                                        <h2 className="text-2xl font-bold text-foreground mb-6 flex items-center gap-2">
-                                            <ImageIcon className="h-6 w-6 text-primary" />
-                                            Images
-                                            <Badge variant="outline">{imageItems.length}</Badge>
-                                        </h2>
                                         <ImageSlider items={imageItems} />
                                     </div>
                                     <div>

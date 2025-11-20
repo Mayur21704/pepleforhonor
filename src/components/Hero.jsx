@@ -38,7 +38,7 @@ const Hero = () => {
 
                     {/* Subheading */}
                     <p className="text-lg md:text-xl text-white/90 max-w-3xl mx-auto mb-8 leading-relaxed animate-slide-up">
-                        Do more than survive in Canada! We provide empowerment, mentorship, and community
+                        Do more than survive in Canada! We provide Career Guidance & Support, mentorship, and community
                         support to help newcomers thrive and build meaningful lives.
                     </p>
 
@@ -52,6 +52,13 @@ const Hero = () => {
                         </Button>
                         <Button asChild size="lg" variant="outline" className="border-white/30  hover:bg-white hover:text-primary backdrop-blur-sm font-semibold px-8 py-4 text-lg">
                             <Link to="/about">Learn More About Us</Link>
+                        </Button>
+                        <Button asChild size="lg" variant="outline" className="border-white/30  hover:bg-white hover:text-primary backdrop-blur-sm font-semibold px-8 py-4 text-lg">
+                            <Link
+                            target="_blank"
+                            to="https://www.zeffy.com/en-CA/newsletter-form/computer-access-program-application">
+                            Apply for our Computer Access Program
+                            </Link>
                         </Button>
                     </div>
 

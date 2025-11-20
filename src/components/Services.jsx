@@ -8,7 +8,7 @@ const Services = () => {
     const services = [
         {
             id: "empowerment",
-            title: "Empowerment",
+            title: "Career Guidance & Support",
             description: "We provide hands-on workshops, resume support, job search guidance, and relevant resources to help you understand the job market & build confidence in interviews.",
             icon: Briefcase,
             image: "https://peopleforhonor.com/wp-content/uploads/2019/05/students-studying-together-scaled.jpg",
@@ -37,13 +37,13 @@ const Services = () => {
         {
             id: "coaching",
             title: "Coaching",
-            description: "We facilitate empowerment-focused group sessions and individual coaching that help participants build clarity, confidence, and emotional resilience.",
+            description: "We facilitate Career Guidance & Support-focused group sessions and individual coaching that help participants build clarity, confidence, and emotional resilience.",
             icon: Target,
             image: "https://peopleforhonor.com/wp-content/uploads/2019/05/man-participation-training-after-being-hired-his-new-office-job-scaled.jpg",
             url: "/programs/coaching",
             features: [
                 "Individual coaching sessions",
-                "Group empowerment workshops",
+                "Group Career Guidance & Support workshops",
                 "Confidence building",
                 "Emotional resilience training"
             ]
@@ -107,7 +107,7 @@ const Services = () => {
                         <span className="text-primary text-xs sm:text-sm font-medium">Our Services</span>
                     </div>
                     <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-3 sm:mb-4 px-4">
-                        Comprehensive Support for Your Journey
+                        Support for Your Journey
                     </h2>
                     <p className="text-sm sm:text-base md:text-lg text-muted-foreground max-w-2xl mx-auto px-4">
                         We believe everyone has the potential to thrive. Our integrated approach combines practical

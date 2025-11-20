@@ -6,7 +6,7 @@ import { Label } from "@/components/ui/label";
 import { Phone, Mail, MapPin, Clock, Send, Heart } from "lucide-react";
 import { useState } from "react";
 
-const API_BASE = import.meta.env.VITE_API_BASE_URL || 'http://localhost:8000';
+const API_BASE = import.meta.env.VITE_API_BASE_URL || '';
 
 const Contact = () => {
     const contactInfo = [
@@ -24,7 +24,7 @@ const Contact = () => {
         },
         {
             icon: MapPin,
-            title: "Visit Us",
+            title: "Mailing Address Only – programs are not delivered at this location",
             details: "1505 laperrieve Ave Suite 506",
             description: "Ottawa, ON, K127T1"
         },
@@ -93,10 +93,6 @@ const Contact = () => {
             <div className="container mx-auto px-4 sm:px-6 lg:px-8">
                 {/* Section Header */}
                 <div className="text-center mb-10 sm:mb-12 lg:mb-16 animate-fade-in">
-                    <div className="inline-flex items-center gap-2 bg-primary/10 rounded-full px-4 py-2 mb-3 sm:mb-4">
-                        <Heart className="h-3 w-3 sm:h-4 sm:w-4 text-primary" />
-                        <span className="text-primary text-xs sm:text-sm font-medium">Get in Touch</span>
-                    </div>
                     <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-3 sm:mb-4 px-4">
                         Ready to Start Your Journey?
                     </h2>
@@ -280,6 +276,63 @@ const Contact = () => {
                             </CardContent>
                         </Card>
                     </div>
+                </div>
+
+                {/* Newsletter Signup */}
+                <div className="mt-10 grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <Card className="bg-gradient-card border-0 shadow-medium">
+                        <CardHeader>
+                            <CardTitle className="text-lg sm:text-xl font-semibold text-foreground">
+                                Sign Up to Our Newsletter
+                            </CardTitle>
+                        </CardHeader>
+                        <CardContent>
+                            <div className="relative w-full h-56 rounded-lg overflow-hidden bg-muted">
+                                <iframe
+                                    title="Signup form powered by Zeffy - Sign Up to Our Newsletter"
+                                    style={{
+                                        position: 'absolute',
+                                        border: 0,
+                                        top: 0,
+                                        left: 0,
+                                        bottom: 0,
+                                        right: 0,
+                                        width: '100%',
+                                        height: '100%'
+                                    }}
+                                    src="https://www.zeffy.com/en-CA/embed/newsletter-form/sign-up-for-our-newsletter-1932"
+                                    allowTransparency="true"
+                                />
+                            </div>
+                        </CardContent>
+                    </Card>
+
+                    <Card className="bg-gradient-card border-0 shadow-medium">
+                        <CardHeader>
+                            <CardTitle className="text-lg sm:text-xl font-semibold text-foreground">
+                                Join Our Mailing List
+                            </CardTitle>
+                        </CardHeader>
+                        <CardContent>
+                            <div className="relative w-full h-56 rounded-lg overflow-hidden bg-muted">
+                                <iframe
+                                    title="Signup form powered by Zeffy - Join Our Mailing List"
+                                    style={{
+                                        position: 'absolute',
+                                        border: 0,
+                                        top: 0,
+                                        left: 0,
+                                        bottom: 0,
+                                        right: 0,
+                                        width: '100%',
+                                        height: '100%'
+                                    }}
+                                    src="https://www.zeffy.com/en-CA/embed/newsletter-form/join-our-mailing-list-18"
+                                    allowTransparency="true"
+                                />
+                            </div>
+                        </CardContent>
+                    </Card>
                 </div>
             </div>
         </section>

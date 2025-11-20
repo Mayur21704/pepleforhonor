@@ -8,7 +8,7 @@ const Footer = () => {
         {
             title: "Services",
             links: [
-                { name: "Employment Support", href: "/programs/empowerment" },
+                { name: "Career Guidance & Support", href: "/programs/empowerment" },
                 { name: "Mentorship Program", href: "/programs/mentorship" },
                 { name: "Personal Coaching", href: "/programs/coaching" },
                 { name: "Culture & Community", href: "/service/culture-and-community-ottawa-program" },
@@ -56,7 +56,7 @@ const Footer = () => {
                             />
                         </Link>
                         <p className="text-background/80 mb-4 sm:mb-6 leading-relaxed text-sm sm:text-base">
-                            Empowering newcomers to Canada with comprehensive support, mentorship,
+                            Empowering newcomers to Canada with support, mentorship,
                             and community connections to help them thrive in their new home.
                         </p>
 

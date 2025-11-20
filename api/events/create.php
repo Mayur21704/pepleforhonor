@@ -31,6 +31,10 @@ if(
     $event->description = $data->description ?? null;
     $event->link = $data->link ?? null;
     $event->status = $data->status ?? 'active';
+    $event->cta1_label = $data->cta1_label ?? null;
+    $event->cta1_url = $data->cta1_url ?? null;
+    $event->cta2_label = $data->cta2_label ?? null;
+    $event->cta2_url = $data->cta2_url ?? null;
 
     // Create the event
     if($event->create()) {

@@ -10,6 +10,8 @@ import UpcomingEvents from "@/components/UpcomingEvents";
 import Contact from "@/components/Contact";
 import { useState } from "react";
 import { Dialog, DialogContent } from "@/components/ui/dialog";
+import { Link } from "react-router-dom";
+import { useEffect } from "react";
 
 const JoinUs = () => {
     const [formData, setFormData] = useState({
@@ -20,7 +22,7 @@ const JoinUs = () => {
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [message, setMessage] = useState({ type: '', text: '' });
 
-    const API_BASE = import.meta.env.VITE_API_BASE_URL || 'http://localhost:8000';
+    const API_BASE = import.meta.env.VITE_API_BASE_URL || '';
 
     const [selectedImageIndex, setSelectedImageIndex] = useState(null);
     const [isImageModalOpen, setIsImageModalOpen] = useState(false);
@@ -168,8 +170,8 @@ const JoinUs = () => {
                             {/* Live site tagline */}
                             <div className="mt-6 bg-background/10 backdrop-blur-sm rounded-xl p-4">
                                 <p className="text-base md:text-lg">
-                                    We are a non-profit ORG Empowering you to discover your inner eagle 🦅, Coaching you to soar 🌟,
-                                    and Mentoring you to stay focused 🎯. Join us to empower others or be empowered! 💪✨
+                                    We are a non-profit ORG Empowering you to discover your inner eagle , Coaching you to soar,
+                                    and Mentoring you to stay focused. Join us to empower others or be empowered!
                                 </p>
                             </div>
                             <div className="mt-4 flex justify-center">
@@ -228,10 +230,12 @@ const JoinUs = () => {
                                     </div>
                                 </div>
 
+                            <Link target="_blank" to="https://www.zeffy.com/en-CA/donation-form/people-for-honor-donate">
                                 <Button className="bg-gradient-primary hover:bg-primary-hover w-full" size="lg">
                                     Make a One-Time Donation
                                     <ArrowRight className="ml-2 h-4 w-4" />
                                 </Button>
+                            </Link>
                             </Card>
 
                             {/* Monthly Giving */}
@@ -268,10 +272,12 @@ const JoinUs = () => {
                                     </div>
                                 </div>
 
+                                <Link target="_blank" to="https://www.zeffy.com/embed/donation-form/raising-futures-every-month?modal=true">
                                 <Button className="bg-gradient-primary hover:bg-primary-hover w-full" size="lg">
-                                    Become a Monthly Donor
+                                    Raising Futures Every Month
                                     <ArrowRight className="ml-2 h-4 w-4" />
                                 </Button>
+                                </Link>
                             </Card>
                         </div>
 
@@ -283,9 +289,14 @@ const JoinUs = () => {
                                 <p className="text-sm text-muted-foreground mb-4">
                                     Recognize a loved one, mentor, or community leader with a tribute gift.
                                 </p>
-                                <Button variant="outline" className="w-full" size="sm">
-                                    Donate in Honour/Memory
-                                </Button>
+                        <Link target="_blank" to="https://www.zeffy.com/embed/donation-form/give-in-honour-or-in-memory?modal=true">
+                        <button
+                            id="zeffy-honour-button"
+                            className="w-full inline-flex items-center justify-center rounded-md border border-input bg-background px-4 py-2 text-sm font-medium text-foreground shadow-sm hover:bg-accent hover:text-accent-foreground"
+                            >
+                                Donate in Honour/Memory
+                        </button>
+                        </Link>
                             </Card>
 
                             {/* Securities */}
@@ -305,9 +316,11 @@ const JoinUs = () => {
                                 <p className="text-sm text-muted-foreground mb-4">
                                     Sponsor a cohort, match employee gifts, or support a campaign.
                                 </p>
+                                <Link target="_blank" to="https://www.zeffy.com/embed/donation-form/corporate-partnerships-sponsor-a-program?modal=true">
                                 <Button variant="outline" className="w-full" size="sm">
-                                    Partner with PFH
+                                    Sponsor a Program
                                 </Button>
+                                </Link>
                             </Card>
                         </div>
 
@@ -363,9 +376,11 @@ const JoinUs = () => {
                                                 <p className="text-sm text-muted-foreground mb-3">From classroom drives to office challenges—make it yours</p>
                                             </div>
                                         </div>
+                                        <Link target="_blank" to="https://www.zeffy.com/en-CA/peer-to-peer/raising-funds-raising-futures-for-newcomers">
                                         <Button variant="outline" className="w-full" size="sm">
                                             Start a Fundraiser
                                         </Button>
+                                        </Link>
                                     </Card>
                                 </div>
 
@@ -376,7 +391,7 @@ const JoinUs = () => {
                                         <div className="flex-1">
                                             <p className="font-semibold text-foreground mb-3">e-Transfer / Cheque</p>
                                             <div className="space-y-2 text-sm text-muted-foreground">
-                                                <p><strong className="text-foreground">e-Transfer:</strong> giving@peopleforhonor.com</p>
+                                                <p><strong className="text-foreground">e-Transfer:</strong> info@peopleforhonor.com</p>
                                                 <p><strong className="text-foreground">Cheque:</strong> Pay to People for Honor, mail to: 1505 laperrieve Ave Suite 506 Ottawa, ON, K127T1</p>
                                             </div>
                                         </div>
@@ -434,7 +449,7 @@ const JoinUs = () => {
                 <section className="py-20 bg-muted/30">
                     <div className="container mx-auto px-4">
                         <div className="text-center mb-12">
-                            <h2 className="text-heading text-foreground mb-4">Community Hangouts</h2>
+                            <h2 className="text-heading text-foreground mb-4">community Gathering</h2>
                             <p className="text-subheading text-muted-foreground max-w-2xl mx-auto">
                                 At People for Honor, we believe in the power of hope to transform lives.
                             </p>

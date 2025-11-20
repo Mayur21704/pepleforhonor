@@ -20,7 +20,7 @@ const About = () => {
         },
         {
             icon: Sparkles,
-            title: "Empowerment",
+            title: "Career Guidance & Support",
             description: "We facilitate growth through practical support, mentorship, and community connection to help you thrive, not just survive."
         }
     ];
@@ -61,7 +61,7 @@ const About = () => {
                             <p className="text-sm sm:text-base text-muted-foreground leading-relaxed">
                                 To empower newcomers to Canada with the tools, connections, and confidence they need
                                 to not just survive, but thrive in their new home. We create pathways to success through
-                                comprehensive support, meaningful mentorship, and genuine community.
+                                support, meaningful mentorship, and genuine community.
                             </p>
                         </div>
                     </div>

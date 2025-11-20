@@ -17,27 +17,6 @@ const Header = () => {
 
     return (
         <header className="fixed top-0 left-0 right-0 z-50 bg-background/95 backdrop-blur-sm border-b border-border">
-            {/* Top contact bar */}
-            <div className="bg-primary text-primary-foreground py-2">
-                <div className="container mx-auto px-4">
-                    <div className="flex flex-col sm:flex-row justify-between items-center text-sm">
-                        <div className="flex items-center gap-4">
-                            <span className="flex items-center gap-1">
-                                <Phone className="h-3 w-3" />
-                                647 459 5384
-                            </span>
-                            <span className="flex items-center gap-1">
-                                <Mail className="h-3 w-3" />
-                                info@peopleforhonor.com
-                            </span>
-                        </div>
-                        <div className="flex items-center gap-1 mt-1 sm:mt-0">
-                            <MapPin className="h-3 w-3" />
-                            1505 laperrieve Ave Suite 506 Ottawa, ON, K127T1
-                        </div>
-                    </div>
-                </div>
-            </div>
 
             {/* Main navigation */}
             <nav className="container mx-auto px-4 py-4">
@@ -66,7 +45,7 @@ const Header = () => {
                         ))}
                         <Button className="bg-gradient-primary hover:bg-primary-hover">
                             <Link to="/programs">
-                                Get Support
+                                Donate
                             </Link>
                         </Button>
                     </div>
@@ -99,7 +78,7 @@ const Header = () => {
                             ))}
                             <Button className="bg-gradient-primary hover:bg-primary-hover mt-4">
                                 <Link to="/programs">
-                                    Get Support
+                                    Donate
                                 </Link>
                             </Button>
                         </div>

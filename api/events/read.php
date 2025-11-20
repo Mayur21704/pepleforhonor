@@ -36,7 +36,11 @@ if($num > 0) {
             'location' => $location,
             'description' => html_entity_decode($description),
             'href' => $link,
-            'status' => $status
+            'status' => $status,
+            'cta1_label' => $cta1_label,
+            'cta1_url' => $cta1_url,
+            'cta2_label' => $cta2_label,
+            'cta2_url' => $cta2_url
         );
 
         array_push($events_arr['data'], $event_item);

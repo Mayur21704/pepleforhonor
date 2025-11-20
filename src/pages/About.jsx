@@ -1,10 +1,12 @@
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Card, CardContent } from "@/components/ui/card";
-import { Heart, Users, Target, Award } from "lucide-react";
+import { Heart, Users, Target, Award, Play } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { useState } from "react";
 
 const About = () => {
+    const [isVideoPlaying, setIsVideoPlaying] = useState(false);
     const values = [
         {
             icon: Heart,
@@ -50,21 +52,12 @@ const About = () => {
                 <section className="py-16">
                     <div className="container mx-auto px-4">
                         <div className="max-w-4xl mx-auto">
-                            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center mb-12">
                                 {/* Image 1 */}
                                 <img
-                                    src="https://peopleforhonor.com/wp-content/uploads/2024/02/Coaching-1.jpg"
+                                    src="./aboutUs.jpg"
                                     alt="People for Honor coaching"
                                     className="w-full h-80 object-cover rounded-xl shadow-medium"
                                 />
-
-                                {/* Image 2 */}
-                                <img
-                                    src="https://peopleforhonor.com/wp-content/uploads/2019/06/post-one.jpg"
-                                    alt="People for Honor community"
-                                    className="w-full h-80 object-cover rounded-xl shadow-medium"
-                                />
-                            </div>
 
                             <Card className="p-8 bg-gradient-card border-0 shadow-medium">
                                 <h2 className="text-heading text-foreground mb-6">The Founder's Story</h2>
@@ -81,6 +74,43 @@ const About = () => {
                                     <p className="text-lg leading-relaxed">
                                         Proudly Nigerian-Canadian, Mr. Francis measures success not just by individual outcomes but by what we build together—strong families, connected neighbourhoods, and opportunities that last. His aim is a living legacy: communities of belonging and fully empowered people who will lift the next generation, just as others once lifted him.
                                     </p>
+
+                                    <div className="mt-8 rounded-xl overflow-hidden shadow-medium">
+                                        <div className="aspect-video bg-muted">
+                                            {!isVideoPlaying ? (
+                                                <div
+                                                    className="relative w-full h-full group cursor-pointer"
+                                                    onClick={() => setIsVideoPlaying(true)}
+                                                >
+                                                    <img
+                                                        src={`https://img.youtube.com/vi/5tB9-1W31Bg/maxresdefault.jpg`}
+                                                        alt="People for Honor Video"
+                                                        className="w-full h-full object-cover"
+                                                    />
+                                                    <div className="absolute inset-0 bg-black/40 group-hover:bg-black/50 transition-colors duration-300 flex items-center justify-center">
+                                                        <div className="relative">
+                                                            <div className="absolute inset-0 bg-primary rounded-full animate-ping opacity-75"></div>
+                                                            <Button
+                                                                size="lg"
+                                                                className="relative bg-primary hover:bg-primary-hover text-primary-foreground rounded-full w-16 h-16 sm:w-20 sm:h-20 flex items-center justify-center shadow-xl hover:scale-110 transition-transform duration-300"
+                                                            >
+                                                                <Play className="h-8 w-8 sm:h-10 sm:w-10 ml-1" fill="currentColor" />
+                                                            </Button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            ) : (
+                                                <iframe
+                                                    className="w-full h-full"
+                                                    src="https://www.youtube.com/embed/5tB9-1W31Bg?autoplay=1&rel=0"
+                                                    title="People for Honor Video"
+                                                    frameBorder="0"
+                                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                                    allowFullScreen
+                                                ></iframe>
+                                            )}
+                                        </div>
+                                    </div>
                                 </div>
                             </Card>
                         </div>

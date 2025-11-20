@@ -50,7 +50,11 @@ try {
             'location' => $row['location'],
             'description' => html_entity_decode($row['description']),
             'href' => $row['link'],
-            'status' => $row['status']
+            'status' => $row['status'],
+            'cta1_label' => $row['cta1_label'],
+            'cta1_url' => $row['cta1_url'],
+            'cta2_label' => $row['cta2_label'],
+            'cta2_url' => $row['cta2_url']
         );
         
         echo json_encode([

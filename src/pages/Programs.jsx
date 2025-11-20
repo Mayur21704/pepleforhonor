@@ -19,6 +19,38 @@ const Programs = () => {
         },
         {
             id: 2,
+            title: "Braiding Training",
+            icon: Scissors,
+            duration: "6 Weeks",
+            capacity: "5 participants per cohort",
+            description: "Learn sectioning, braiding foundations, cornrows, knotless and box braids, protective styling, scalp care, client care, and basic business skills. Completion certificate plus optional mentorship for internships or apprenticeships.",
+            highlights: [
+                "Sectioning and braiding foundations",
+                "Cornrows, knotless braids, and box braids",
+                "Protective styles and scalp care",
+                "Sanitation and client care",
+                "Basic business skills"
+            ],
+            link: "/programs/braiding-training"
+        },
+        {
+            id: 3,
+            title: "Community Cooking & Cultural Food",
+            icon: Heart,
+            duration: "6 Weeks",
+            capacity: "5 participants per cohort",
+            description: "Learn kitchen basics, cultural recipes, and safe food handling. Completion certificate plus optional mentorship for catering and small food business opportunities.",
+            highlights: [
+                "Kitchen safety and knife skills",
+                "Budget-friendly meal prep and planning",
+                "Cultural recipes and storytelling through food",
+                "Food presentation and potluck basics",
+                "Introduction to pricing, catering, and small food business skills"
+            ],
+            link: "/programs/community-cooking-cultural-food"
+        },
+        {
+            id: 4,
             title: "Sewing for Beginners",
             icon: Shirt,
             duration: "6 Weeks",
@@ -28,7 +60,7 @@ const Programs = () => {
             link: "/programs/sewing-beginners"
         },
         {
-            id: 3,
+            id: 5,
             title: "Entrepreneurship Launchpad",
             icon: Lightbulb,
             duration: "6-8 Weeks",
@@ -38,7 +70,7 @@ const Programs = () => {
             link: "/programs/entrepreneurship-launchpad"
         },
         {
-            id: 4,
+            id: 6,
             title: "Cultural Dance & Movement",
             icon: Music,
             duration: "Bi-Weekly",

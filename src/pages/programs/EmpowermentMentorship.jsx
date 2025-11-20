@@ -44,7 +44,7 @@ const EmpowermentMentorship = () => {
                 <section className="py-20 bg-gradient-primary text-primary-foreground">
                     <div className="container mx-auto px-4">
                         <div className="max-w-4xl mx-auto text-center">
-                            <h1 className="text-4xl md:text-5xl font-bold mb-4">Empowerment, Mentorship and Coaching</h1>
+                            <h1 className="text-4xl md:text-5xl font-bold mb-4">Career Guidance & Support, Mentorship and Coaching</h1>
                             <p className="text-lg md:text-xl opacity-90">
                                 Practical job‑market readiness, guided growth and coaching—on one path.
                             </p>
@@ -57,7 +57,7 @@ const EmpowermentMentorship = () => {
                     <div className="container mx-auto px-4">
                         <div className="flex flex-wrap gap-3 justify-center">
                             <Button asChild variant="outline">
-                                <a href="#empowerment">Empowerment</a>
+                                <a href="#empowerment">Career Guidance & Support</a>
                             </Button>
                             <Button asChild variant="outline">
                                 <a href="#mentorship">Mentorship</a>
@@ -91,7 +91,7 @@ const EmpowermentMentorship = () => {
                                         help them settle, integrate, and thrive. From understanding the job market to building confidence in
                                         interviews, we offer tools that turn uncertainty into action.
                                         <br /><br />
-                                        Our Youth Empowerment program is built to meet newcomer and immigrant youth where they are, and walk with them as they navigate life in Canada.
+                                        Our Youth Career Guidance & Support program is built to meet newcomer and immigrant youth where they are, and walk with them as they navigate life in Canada.
                                     </CardDescription>
                                 </CardHeader>
                             </Card>
@@ -194,7 +194,7 @@ const EmpowermentMentorship = () => {
                                     </div>
                                     <CardDescription className="text-base">
                                         We create intentional spaces where Black immigrant youths are seen, supported, and matched with mentors who reflect their realities.
-                                        Through empowerment workshops, one-on-one matching, and story-sharing, we help rebuild the self-confidence that often gets chipped away
+                                        Through Career Guidance & Support workshops, one-on-one matching, and story-sharing, we help rebuild the self-confidence that often gets chipped away
                                         in the immigration process.
                                         <br /><br />
                                         Our mentors offer more than advice, they provide friendship, consistency, and a deep understanding of what it means to start over.
@@ -249,7 +249,7 @@ const EmpowermentMentorship = () => {
                         <Card className="p-6 md:p-8 bg-background/60">
                             <CardTitle className="text-2xl mb-2">Choose your starting point</CardTitle>
                             <CardDescription className="mb-4">
-                                Many participants begin with Empowerment to build practical readiness and continue with Mentorship for
+                                Many participants begin with Career Guidance & Support to build practical readiness and continue with Mentorship for
                                 guidance and accountability. We’ll help you tailor the path to your goals.
                             </CardDescription>
                             <div className="flex flex-col sm:flex-row gap-3">

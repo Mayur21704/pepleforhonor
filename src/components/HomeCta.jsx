@@ -7,7 +7,7 @@ const HomeCta = () => {
         <section className="py-16 sm:py-20 bg-muted/30">
             <div className="container mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="max-w-3xl mx-auto text-center bg-gradient-card rounded-2xl p-8 sm:p-10 border border-border/50 shadow-medium">
-                    <h2 className="text-heading text-foreground mb-4">Ready to Make Your Life in Canada Better?</h2>
+                    <h2 className="text-heading text-foreground mb-4">Building a life in a new country is not easy. We are here so you do not have to do it alone.</h2>
                     <p className="text-muted-foreground text-base leading-relaxed mb-6">
                         Join thousands of immigrants who have found needed help and community with People for Honor.
                     </p>
