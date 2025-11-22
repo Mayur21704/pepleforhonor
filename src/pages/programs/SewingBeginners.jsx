@@ -186,10 +186,13 @@ const SewingBeginners = () => {
                                     All machines and fabric provided—no experience needed!
                                 </p>
                                 <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                                    <Button className="bg-gradient-primary hover:bg-primary-hover" size="lg">
-                                        Register Now
-                                        <ArrowRight className="ml-2 h-5 w-5" />
+                                    <Button asChild size="lg" className="w-full">
+                                        <Link to="/program-registration" className="flex items-center justify-center">
+                                            Register Now
+                                            <ArrowRight className="ml-2 h-5 w-5" />
+                                        </Link>
                                     </Button>
+
                                     <Button variant="outline" size="lg" asChild>
                                         <Link to="/programs">View All Programs</Link>
                                     </Button>

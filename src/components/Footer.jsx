@@ -1,4 +1,4 @@
-import { Heart, Phone, Mail, MapPin, Facebook, Twitter, Instagram, Linkedin } from "lucide-react";
+import { Heart, Phone, Mail, MapPin, Facebook, Twitter, Instagram, Linkedin , Youtube  } from "lucide-react";
 import { Link } from "react-router-dom";
 
 const Footer = () => {
@@ -39,6 +39,7 @@ const Footer = () => {
         { name: "Twitter", icon: Twitter, href: "https://twitter.com/peopleforhonor" },
         { name: "Instagram", icon: Instagram, href: "https://instagram.com/peopleforhonor" },
         { name: "LinkedIn", icon: Linkedin, href: "https://linkedin.com/company/peopleforhonor" },
+        { name: "YouTube", icon: Youtube, href: "https://www.youtube.com/watch?si=YxJSbApHO-4_uvZ5&v=diRTERC7lis&feature=youtu.be" },
     ];
 
     return (

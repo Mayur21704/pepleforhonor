@@ -22,7 +22,14 @@ import MentorshipProgram from "./pages/programs/MentorshipProgram";
 import EventDetail from "./pages/EventDetail";
 import BraidingTraining from "./pages/programs/BraidingTraining";
 import CommunityCookingCulturalFood from "./pages/programs/CommunityCookingCulturalFood";
-
+import PartnerWithPFHForm from "./components/forms/PartnerWithPFHForm";
+import InKindGiftsForm from "./components/forms/InKindGiftsForm";
+import DonateSecuritiesForm from "./components/forms/DonateSecuritiesForm";
+import ComputerAccessProgramForm from "./components/forms/ComputerForm";
+import VolunteerInquiryForm from "./components/forms/VolunteerInquiryForm";
+import ProgramRegistrationForm from "./components/forms/ProgramForm";
+import ThankYou from "./components/ThankYou";
+import PitchForm from './components/forms/PitchForm'
 const queryClient = new QueryClient();
 
 function ScrollToTop() {
@@ -58,13 +65,27 @@ const App = () => (
                     <Route path="/programs/braiding-training" element={<BraidingTraining />} />
                     <Route path="/programs/community-cooking-cultural-food" element={<CommunityCookingCulturalFood />} />
                     {/* Dynamic event detail routes */}
+                    
+                    <Route path="/partner-with-pfh" element={<PartnerWithPFHForm />} />
+                    <Route path="/in-kind-gifts" element={<InKindGiftsForm />} />
+                    <Route path="/donate-securities" element={<DonateSecuritiesForm />} />
+                    <Route path='/computer-access' element={<ComputerAccessProgramForm />} />
+                    <Route path="/volunteer" element={<VolunteerInquiryForm />} />
+                    <Route path="/program-registration" element={<ProgramRegistrationForm />} />
+
+
+                     <Route path="/thank-you" element={<ThankYou />} />
+                    <Route path="/pitch-form" element={<ThankYou />} />
+                     
                     <Route path="/:slug" element={<EventDetail />} />
                     <Route path="/events/:slug" element={<EventDetail />} />
                     <Route path="/join" element={<JoinUs />} />
                     <Route path="/gallery" element={<Gallery />} />
                     <Route path="/contact" element={<ContactPage />} />
+
                     {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
                     <Route path="*" element={<NotFound />} />
+
                 </Routes>
             </BrowserRouter>
         </TooltipProvider>

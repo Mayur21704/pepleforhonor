@@ -110,10 +110,15 @@ const CoachingProgram = () => {
                                             </div>
                                         ))}
                                     </div>
-                                    <Button className="bg-gradient-primary hover:bg-primary-hover w-full" size="lg">
-                                        Apply for Career Coaching
-                                        <ArrowRight className="ml-2 h-5 w-5" />
+
+
+                                    <Button asChild size="lg" className="w-full">
+                                        <Link to="/program-registration" className="flex items-center justify-center">
+                                            Apply for Career Coaching
+                                            <ArrowRight className="ml-2 h-5 w-5" />
+                                        </Link>
                                     </Button>
+
                                 </Card>
 
                                 {/* Life & Wellbeing */}

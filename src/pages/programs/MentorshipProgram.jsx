@@ -165,10 +165,14 @@ const MentorshipProgram = () => {
                                     join our mentorship community today.
                                 </p>
                                 <div className="flex flex-col sm:flex-row gap-4 justify-center mb-6">
-                                    <Button className="bg-gradient-primary hover:bg-primary-hover" size="lg">
-                                        Apply for a Mentor
-                                        <ArrowRight className="ml-2 h-5 w-5" />
+
+                                    <Button asChild size="lg" className="w-full">
+                                        <Link to="/program-registration" className="flex items-center justify-center">
+                                            Apply for a Mentor
+                                            <ArrowRight className="ml-2 h-5 w-5" />
+                                        </Link>
                                     </Button>
+
                                     <Button variant="outline" size="lg">
                                         Volunteer as a Mentor
                                     </Button>

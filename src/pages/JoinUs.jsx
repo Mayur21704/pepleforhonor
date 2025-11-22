@@ -230,12 +230,12 @@ const JoinUs = () => {
                                     </div>
                                 </div>
 
-                            <Link target="_blank" to="https://www.zeffy.com/en-CA/donation-form/people-for-honor-donate">
-                                <Button className="bg-gradient-primary hover:bg-primary-hover w-full" size="lg">
-                                    Make a One-Time Donation
-                                    <ArrowRight className="ml-2 h-4 w-4" />
-                                </Button>
-                            </Link>
+                                <Link target="_blank" to="https://www.zeffy.com/en-CA/donation-form/people-for-honor-donate">
+                                    <Button className="bg-gradient-primary hover:bg-primary-hover w-full" size="lg">
+                                        Make a One-Time Donation
+                                        <ArrowRight className="ml-2 h-4 w-4" />
+                                    </Button>
+                                </Link>
                             </Card>
 
                             {/* Monthly Giving */}
@@ -273,10 +273,10 @@ const JoinUs = () => {
                                 </div>
 
                                 <Link target="_blank" to="https://www.zeffy.com/embed/donation-form/raising-futures-every-month?modal=true">
-                                <Button className="bg-gradient-primary hover:bg-primary-hover w-full" size="lg">
-                                    Raising Futures Every Month
-                                    <ArrowRight className="ml-2 h-4 w-4" />
-                                </Button>
+                                    <Button className="bg-gradient-primary hover:bg-primary-hover w-full" size="lg">
+                                        Raising Futures Every Month
+                                        <ArrowRight className="ml-2 h-4 w-4" />
+                                    </Button>
                                 </Link>
                             </Card>
                         </div>
@@ -289,14 +289,14 @@ const JoinUs = () => {
                                 <p className="text-sm text-muted-foreground mb-4">
                                     Recognize a loved one, mentor, or community leader with a tribute gift.
                                 </p>
-                        <Link target="_blank" to="https://www.zeffy.com/embed/donation-form/give-in-honour-or-in-memory?modal=true">
-                        <button
-                            id="zeffy-honour-button"
-                            className="w-full inline-flex items-center justify-center rounded-md border border-input bg-background px-4 py-2 text-sm font-medium text-foreground shadow-sm hover:bg-accent hover:text-accent-foreground"
-                            >
-                                Donate in Honour/Memory
-                        </button>
-                        </Link>
+                                <Link target="_blank" to="https://www.zeffy.com/embed/donation-form/give-in-honour-or-in-memory?modal=true">
+                                    <button
+                                        id="zeffy-honour-button"
+                                        className="w-full inline-flex items-center justify-center rounded-md border border-input bg-background px-4 py-2 text-sm font-medium text-foreground shadow-sm hover:bg-accent hover:text-accent-foreground"
+                                    >
+                                        Donate in Honour/Memory
+                                    </button>
+                                </Link>
                             </Card>
 
                             {/* Securities */}
@@ -305,9 +305,11 @@ const JoinUs = () => {
                                 <p className="text-sm text-muted-foreground mb-4">
                                     Donate stocks, mutual funds, or ETFs. Avoid capital gains tax while maximizing impact.
                                 </p>
-                                <Button variant="outline" className="w-full" size="sm">
-                                    Donate Securities
-                                </Button>
+                                <Link to="/donate-securities">
+                                    <Button variant="outline" className="w-full" size="sm">
+                                        Donate Securities
+                                    </Button>
+                                </Link>
                             </Card>
 
                             {/* Corporate */}
@@ -317,9 +319,9 @@ const JoinUs = () => {
                                     Sponsor a cohort, match employee gifts, or support a campaign.
                                 </p>
                                 <Link target="_blank" to="https://www.zeffy.com/embed/donation-form/corporate-partnerships-sponsor-a-program?modal=true">
-                                <Button variant="outline" className="w-full" size="sm">
-                                    Sponsor a Program
-                                </Button>
+                                    <Button variant="outline" className="w-full" size="sm">
+                                        Sponsor a Program
+                                    </Button>
                                 </Link>
                             </Card>
                         </div>
@@ -337,9 +339,12 @@ const JoinUs = () => {
                                                 <p className="text-sm text-muted-foreground mb-3">Sponsor a cohort, match employee gifts, or support a campaign</p>
                                             </div>
                                         </div>
-                                        <Button variant="outline" className="w-full" size="sm">
-                                            Partner with PFH
-                                        </Button>
+                                        <Link to="/partner-with-pfh">
+                                            <Button variant="outline" className="w-full" size="sm">
+                                                Sponsor a Program
+                                            </Button>
+                                        </Link>
+
                                     </Card>
 
                                     <Card className="p-6 bg-background">
@@ -350,9 +355,11 @@ const JoinUs = () => {
                                                 <p className="text-sm text-muted-foreground mb-3">Laptops, sewing fabric/notions, barber tools, printing, space, snacks</p>
                                             </div>
                                         </div>
-                                        <Button variant="outline" className="w-full" size="sm">
-                                            Offer an In-Kind Gift
-                                        </Button>
+                                        <Link to="/in-kind-gifts">
+                                            <Button variant="outline" className="w-full" size="sm">
+                                                Offer an In-Kind Gift
+                                            </Button>
+                                        </Link>
                                     </Card>
 
                                     <Card className="p-6 bg-background">
@@ -363,9 +370,11 @@ const JoinUs = () => {
                                                 <p className="text-sm text-muted-foreground mb-3">Become a coach or mentor (2–4 hrs/month)</p>
                                             </div>
                                         </div>
-                                        <Button variant="outline" className="w-full" size="sm">
-                                            Volunteer with PFH
-                                        </Button>
+                                        <Link to="/volunteer" className="w-full">
+                                            <Button variant="outline" className="w-full" size="sm">
+                                                Volunteer with PFH
+                                            </Button>
+                                        </Link>
                                     </Card>
 
                                     <Card className="p-6 bg-background">
@@ -377,9 +386,9 @@ const JoinUs = () => {
                                             </div>
                                         </div>
                                         <Link target="_blank" to="https://www.zeffy.com/en-CA/peer-to-peer/raising-funds-raising-futures-for-newcomers">
-                                        <Button variant="outline" className="w-full" size="sm">
-                                            Start a Fundraiser
-                                        </Button>
+                                            <Button variant="outline" className="w-full" size="sm">
+                                                Start a Fundraiser
+                                            </Button>
                                         </Link>
                                     </Card>
                                 </div>
