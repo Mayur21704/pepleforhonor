@@ -29,7 +29,9 @@ import ComputerAccessProgramForm from "./components/forms/ComputerForm";
 import VolunteerInquiryForm from "./components/forms/VolunteerInquiryForm";
 import ProgramRegistrationForm from "./components/forms/ProgramForm";
 import ThankYou from "./components/ThankYou";
-import PitchForm from './components/forms/PitchForm'
+
+import UpcomingEventsPage from "./components/forms/UpcomingEventsPage";
+
 const queryClient = new QueryClient();
 
 function ScrollToTop() {
@@ -75,16 +77,16 @@ const App = () => (
 
 
                      <Route path="/thank-you" element={<ThankYou />} />
-                    <Route path="/pitch-form" element={<ThankYou />} />
+
                      
                     <Route path="/:slug" element={<EventDetail />} />
+                    <Route path="/events" element={<UpcomingEventsPage />} />
                     <Route path="/events/:slug" element={<EventDetail />} />
                     <Route path="/join" element={<JoinUs />} />
                     <Route path="/gallery" element={<Gallery />} />
                     <Route path="/contact" element={<ContactPage />} />
 
-                    <Route path="/event-registration" element={<PitchForm />} />
-
+ 
                     
 
                     {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
