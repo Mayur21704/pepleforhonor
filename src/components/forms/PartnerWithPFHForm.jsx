@@ -6,6 +6,9 @@ import { Checkbox } from "@/components/ui/checkbox";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { useNavigate } from "react-router-dom";
+import Header from "../Header";
+import Footer from '../Footer'
+
 import {
   Form,
   FormItem,
@@ -90,7 +93,9 @@ const onSubmit = async (data) => {
   };
 
   return (
-    <div className="max-w-3xl mx-auto p-6 bg-white rounded-xl shadow-sm border">
+   <div>
+      <Header />
+           <div className="max-w-3xl mx-auto p-6 pt-28 bg-white rounded-xl shadow-sm border">
       <h1 className="text-2xl font-semibold text-purple-700 mb-2">
         Partner with People for Honor
       </h1>
@@ -302,5 +307,7 @@ const onSubmit = async (data) => {
         </form>
       </Form>
     </div>
+       <Footer />
+   </div>
   );
 }

@@ -243,9 +243,12 @@ const Programs = () => {
                                             <ArrowRight className="ml-2 h-4 w-4" />
                                         </Link>
                                     </Button>
-                                    <Button variant="outline" className="w-full">
+                                   
+                                     <Link to='/volunteer'>
+                                                <Button variant="outline" className="w-full">
                                         Become a Volunteer Coach
-                                    </Button>
+                                    </Button>                            
+                                     </Link>
                                 </div>
                             </Card>
 
@@ -304,12 +307,17 @@ const Programs = () => {
                                             <ArrowRight className="ml-2 h-4 w-4" />
                                         </Link>
                                     </Button>
+                                        <Link to='/volunteer'>
                                     <Button variant="outline" className="w-full">
                                         Volunteer as a Mentor
                                     </Button>
+
+                                    </Link>
+                                    <Link to='/program-registration'>
                                     <Button variant="outline" className="w-full">
                                         Register for Adult Circle
                                     </Button>
+                                    </Link>
                                 </div>
                             </Card>
                         </div>

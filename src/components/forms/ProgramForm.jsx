@@ -6,6 +6,8 @@ import { Checkbox } from "@/components/ui/checkbox";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { useNavigate } from "react-router-dom";
+import Header from "../Header";
+import Footer from '../Footer'
 
 import {
   Form,
@@ -114,7 +116,9 @@ export default function ProgramRegistrationForm() {
   };
 
   return (
-    <div className="max-w-3xl mx-auto p-6 bg-white rounded-xl shadow-sm border">
+     <div>
+      <Header />
+            <div className="max-w-3xl mx-auto p-6 pt-28 bg-white rounded-xl shadow-sm border">
       <h1 className="text-2xl font-semibold text-purple-700 mb-2">
         Program Registration Form
       </h1>
@@ -408,5 +412,7 @@ export default function ProgramRegistrationForm() {
         </form>
       </Form>
     </div>
+       <Footer />
+     </div>
   );
 }

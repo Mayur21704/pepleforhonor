@@ -6,6 +6,10 @@ import { Checkbox } from "@/components/ui/checkbox";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { useNavigate } from "react-router-dom";
+
+import Header from "../Header";
+import Footer from '../Footer'
+
 import {
   Form,
   FormItem,
@@ -79,8 +83,8 @@ export default function VolunteerInquiryForm() {
     },
   });
 
-    const navigate = useNavigate(); 
- const onSubmit = async (data) => {
+  const navigate = useNavigate();
+  const onSubmit = async (data) => {
     try {
       const response = await fetch("https://formsubmit.co/info@peopleforhonor.com", {
         method: "POST",
@@ -108,235 +112,240 @@ export default function VolunteerInquiryForm() {
   };
 
   return (
-    <div className="max-w-3xl mx-auto p-6 bg-white rounded-xl shadow-sm border">
-      <h1 className="text-2xl font-semibold text-purple-700 mb-2">
-        Volunteer Inquiry Form
-      </h1>
 
-      <p className="text-gray-600 mb-6">
-        Thank you for your interest in volunteering with People for Honor.
-        Please complete this short form and we will follow up with next steps.
-      </p>
+    <div>
+      <Header />
+      <div className="max-w-3xl mx-auto p-6 pt-28 bg-white rounded-xl shadow-sm border">
+        <h1 className="text-2xl font-semibold text-purple-700 mb-2">
+          Volunteer Inquiry Form
+        </h1>
 
-      <Form {...form}>
-        <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
+        <p className="text-gray-600 mb-6">
+          Thank you for your interest in volunteering with People for Honor.
+          Please complete this short form and we will follow up with next steps.
+        </p>
 
-        
-          <FormField
-            name="fullName"
-            control={form.control}
-            render={({ field }) => (
-              <FormItem>
-                <FormLabel>Full Name *</FormLabel>
-                <FormControl>
-                  <Input placeholder="Your name" {...field} />
-                </FormControl>
-                <FormMessage />
-              </FormItem>
-            )}
-          />
+        <Form {...form}>
+          <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
 
-       
-          <FormField
-            name="email"
-            control={form.control}
-            render={({ field }) => (
-              <FormItem>
-                <FormLabel>Email Address *</FormLabel>
-                <FormControl>
-                  <Input placeholder="email@example.com" {...field} />
-                </FormControl>
-                <FormMessage />
-              </FormItem>
-            )}
-          />
 
-      
-          <FormField
-            name="phone"
-            control={form.control}
-            render={({ field }) => (
-              <FormItem>
-                <FormLabel>Phone Number *</FormLabel>
-                <FormControl>
-                  <Input placeholder="Phone number" {...field} />
-                </FormControl>
-                <FormMessage />
-              </FormItem>
-            )}
-          />
+            <FormField
+              name="fullName"
+              control={form.control}
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>Full Name *</FormLabel>
+                  <FormControl>
+                    <Input placeholder="Your name" {...field} />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
 
-        
-          <FormField
-            name="ageRange"
-            control={form.control}
-            render={({ field }) => (
-              <FormItem>
-                <FormLabel>Age Range *</FormLabel>
-                <FormControl>
-                  <RadioGroup onValueChange={field.onChange} value={field.value}>
-                    {ageRanges.map((age) => (
-                      <div className="flex items-center gap-3" key={age}>
-                        <RadioGroupItem value={age} />
-                        <FormLabel className="font-normal">{age}</FormLabel>
-                      </div>
-                    ))}
-                  </RadioGroup>
-                </FormControl>
-                <FormMessage />
-              </FormItem>
-            )}
-          />
 
-       
-          <div>
-            <h2 className="text-lg font-medium mb-2">How You Want to Help *</h2>
-            {helpAreas.map((item) => (
-              <FormField
-                key={item}
-                name="helpAreas"
-                control={form.control}
-                render={({ field }) => {
-                  const checked = field.value.includes(item);
-                  return (
-                    <FormItem className="flex gap-3 items-center">
-                      <FormControl>
-                        <Checkbox
-                          checked={checked}
-                          onCheckedChange={(val) => {
-                            if (val) field.onChange([...field.value, item]);
-                            else
-                              field.onChange(
-                                field.value.filter((i) => i !== item)
-                              );
-                          }}
-                        />
-                      </FormControl>
-                      <FormLabel className="font-normal">{item}</FormLabel>
-                    </FormItem>
-                  );
-                }}
-              />
-            ))}
-            <FormMessage />
-          </div>
+            <FormField
+              name="email"
+              control={form.control}
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>Email Address *</FormLabel>
+                  <FormControl>
+                    <Input placeholder="email@example.com" {...field} />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
 
-      
-          <FormField
-            name="whyVolunteer"
-            control={form.control}
-            render={({ field }) => (
-              <FormItem>
-                <FormLabel>Why would you like to volunteer? *</FormLabel>
-                <FormControl>
-                  <Textarea
-                    placeholder="Tell us why you want to volunteer..."
-                    {...field}
-                  />
-                </FormControl>
-                <FormMessage />
-              </FormItem>
-            )}
-          />
 
-       
-          <div>
-            <h2 className="text-lg font-medium mb-2">When are you available? *</h2>
-            {availabilityOptions.map((item) => (
-              <FormField
-                key={item}
-                name="availability"
-                control={form.control}
-                render={({ field }) => {
-                  const checked = field.value.includes(item);
-                  return (
-                    <FormItem className="flex items-center gap-3">
-                      <FormControl>
-                        <Checkbox
-                          checked={checked}
-                          onCheckedChange={(val) => {
-                            if (val) field.onChange([...field.value, item]);
-                            else
-                              field.onChange(
-                                field.value.filter((i) => i !== item)
-                              );
-                          }}
-                        />
-                      </FormControl>
-                      <FormLabel className="font-normal">{item}</FormLabel>
-                    </FormItem>
-                  );
-                }}
-              />
-            ))}
-            <FormMessage />
-          </div>
+            <FormField
+              name="phone"
+              control={form.control}
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>Phone Number *</FormLabel>
+                  <FormControl>
+                    <Input placeholder="Phone number" {...field} />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
 
-         
-          <FormField
-            name="heardAbout"
-            control={form.control}
-            render={({ field }) => (
-              <FormItem>
-                <FormLabel>How did you hear about PFH? *</FormLabel>
-                <FormControl>
-                  <RadioGroup onValueChange={field.onChange} value={field.value}>
-                    {heardAboutOptions.map((opt) => (
-                      <div className="flex items-center gap-3" key={opt}>
-                        <RadioGroupItem value={opt} />
-                        <FormLabel className="font-normal">{opt}</FormLabel>
-                      </div>
-                    ))}
-                  </RadioGroup>
-                </FormControl>
-                <FormMessage />
-              </FormItem>
-            )}
-          />
 
-         
-          <FormField
-            name="extraNotes"
-            control={form.control}
-            render={({ field }) => (
-              <FormItem>
-                <FormLabel>Anything else you'd like us to know?</FormLabel>
-                <FormControl>
-                  <Textarea
-                    placeholder="Additional notes..."
-                    {...field}
-                  />
-                </FormControl>
-              </FormItem>
-            )}
-          />
+            <FormField
+              name="ageRange"
+              control={form.control}
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>Age Range *</FormLabel>
+                  <FormControl>
+                    <RadioGroup onValueChange={field.onChange} value={field.value}>
+                      {ageRanges.map((age) => (
+                        <div className="flex items-center gap-3" key={age}>
+                          <RadioGroupItem value={age} />
+                          <FormLabel className="font-normal">{age}</FormLabel>
+                        </div>
+                      ))}
+                    </RadioGroup>
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
 
-        
-          <FormField
-            name="consent"
-            control={form.control}
-            render={({ field }) => (
-              <FormItem className="flex items-center gap-3">
-                <FormControl>
-                  <Checkbox
-                    checked={field.value}
-                    onCheckedChange={field.onChange}
-                  />
-                </FormControl>
-                <FormLabel className="font-normal">
-                  I agree to receive emails or calls about volunteer opportunities. *
-                </FormLabel>
-                <FormMessage />
-              </FormItem>
-            )}
-          />
 
-       
-          <Button type="submit" className="w-full bg-purple-600 text-white">
-            Submit Volunteer Inquiry
-          </Button>
-        </form>
-      </Form>
+            <div>
+              <h2 className="text-lg font-medium mb-2">How You Want to Help *</h2>
+              {helpAreas.map((item) => (
+                <FormField
+                  key={item}
+                  name="helpAreas"
+                  control={form.control}
+                  render={({ field }) => {
+                    const checked = field.value.includes(item);
+                    return (
+                      <FormItem className="flex gap-3 items-center">
+                        <FormControl>
+                          <Checkbox
+                            checked={checked}
+                            onCheckedChange={(val) => {
+                              if (val) field.onChange([...field.value, item]);
+                              else
+                                field.onChange(
+                                  field.value.filter((i) => i !== item)
+                                );
+                            }}
+                          />
+                        </FormControl>
+                        <FormLabel className="font-normal">{item}</FormLabel>
+                      </FormItem>
+                    );
+                  }}
+                />
+              ))}
+              <FormMessage />
+            </div>
+
+
+            <FormField
+              name="whyVolunteer"
+              control={form.control}
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>Why would you like to volunteer? *</FormLabel>
+                  <FormControl>
+                    <Textarea
+                      placeholder="Tell us why you want to volunteer..."
+                      {...field}
+                    />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+
+
+            <div>
+              <h2 className="text-lg font-medium mb-2">When are you available? *</h2>
+              {availabilityOptions.map((item) => (
+                <FormField
+                  key={item}
+                  name="availability"
+                  control={form.control}
+                  render={({ field }) => {
+                    const checked = field.value.includes(item);
+                    return (
+                      <FormItem className="flex items-center gap-3">
+                        <FormControl>
+                          <Checkbox
+                            checked={checked}
+                            onCheckedChange={(val) => {
+                              if (val) field.onChange([...field.value, item]);
+                              else
+                                field.onChange(
+                                  field.value.filter((i) => i !== item)
+                                );
+                            }}
+                          />
+                        </FormControl>
+                        <FormLabel className="font-normal">{item}</FormLabel>
+                      </FormItem>
+                    );
+                  }}
+                />
+              ))}
+              <FormMessage />
+            </div>
+
+
+            <FormField
+              name="heardAbout"
+              control={form.control}
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>How did you hear about PFH? *</FormLabel>
+                  <FormControl>
+                    <RadioGroup onValueChange={field.onChange} value={field.value}>
+                      {heardAboutOptions.map((opt) => (
+                        <div className="flex items-center gap-3" key={opt}>
+                          <RadioGroupItem value={opt} />
+                          <FormLabel className="font-normal">{opt}</FormLabel>
+                        </div>
+                      ))}
+                    </RadioGroup>
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+
+
+            <FormField
+              name="extraNotes"
+              control={form.control}
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>Anything else you'd like us to know?</FormLabel>
+                  <FormControl>
+                    <Textarea
+                      placeholder="Additional notes..."
+                      {...field}
+                    />
+                  </FormControl>
+                </FormItem>
+              )}
+            />
+
+
+            <FormField
+              name="consent"
+              control={form.control}
+              render={({ field }) => (
+                <FormItem className="flex items-center gap-3">
+                  <FormControl>
+                    <Checkbox
+                      checked={field.value}
+                      onCheckedChange={field.onChange}
+                    />
+                  </FormControl>
+                  <FormLabel className="font-normal">
+                    I agree to receive emails or calls about volunteer opportunities. *
+                  </FormLabel>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+
+
+            <Button type="submit" className="w-full bg-purple-600 text-white">
+              Submit Volunteer Inquiry
+            </Button>
+          </form>
+        </Form>
+      </div>
+      <Footer />
     </div>
   );
 }

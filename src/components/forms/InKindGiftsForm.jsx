@@ -6,6 +6,10 @@ import { Checkbox } from "@/components/ui/checkbox";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { useNavigate } from "react-router-dom";
+import Header from "../Header";
+import Footer from '../Footer'
+
+
 import {
   Form,
   FormItem,
@@ -125,7 +129,9 @@ export default function InKindGiftsForm() {
   };
 
   return (
-    <div className="max-w-3xl mx-auto p-6 bg-white rounded-xl shadow-sm border">
+     <div>
+      <Header />
+            <div className="max-w-3xl mx-auto p-6 pt-28 bg-white rounded-xl shadow-sm border">
       <h1 className="text-2xl font-semibold text-purple-700 mb-2">
         In-Kind Gifts Inquiry Form
       </h1>
@@ -499,5 +505,7 @@ export default function InKindGiftsForm() {
         </form>
       </Form>
     </div>
+       <Footer />
+     </div>
   );
 }

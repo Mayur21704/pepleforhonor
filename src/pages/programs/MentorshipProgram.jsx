@@ -173,14 +173,21 @@ const MentorshipProgram = () => {
                                         </Link>
                                     </Button>
 
-                                    <Button variant="outline" size="lg">
-                                        Volunteer as a Mentor
-                                    </Button>
+                                    <Link to='/volunteer'>
+
+                                        <Button variant="outline" size="lg">
+                                            Volunteer as a Mentor
+                                        </Button>
+
+                                    </Link>
+
                                 </div>
                                 <div className="flex justify-center">
-                                    <Button variant="outline" size="lg">
-                                        Register for Adult Circle Gathering
-                                    </Button>
+                                     <Link to='/program-registration'>
+                                           <Button variant="outline" size="lg">
+                                            Register for Adult Circle Gathering
+                                      </Button>
+                                     </Link>
                                 </div>
                                 <div className="mt-6">
                                     <Button variant="ghost" size="lg" asChild>

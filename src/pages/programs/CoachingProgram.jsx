@@ -138,10 +138,12 @@ const CoachingProgram = () => {
                                             </div>
                                         ))}
                                     </div>
-                                    <Button className="bg-gradient-primary hover:bg-primary-hover w-full" size="lg">
-                                        Apply for Life Coaching
-                                        <ArrowRight className="ml-2 h-5 w-5" />
-                                    </Button>
+                                    <Link to="/program-registration">
+                                        <Button className="bg-gradient-primary hover:bg-primary-hover w-full" size="lg">
+                                            Apply for Life Coaching
+                                            <ArrowRight className="ml-2 h-5 w-5" />
+                                        </Button>
+                                    </Link>
                                 </Card>
                             </div>
 
@@ -181,13 +183,22 @@ const CoachingProgram = () => {
                                     our trained coaches are here to support you every step of the way.
                                 </p>
                                 <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                                          
+                                    <Link to='/program-registration'>
+
                                     <Button className="bg-gradient-primary hover:bg-primary-hover" size="lg">
                                         Apply for Coaching
                                         <ArrowRight className="ml-2 h-5 w-5" />
                                     </Button>
-                                    <Button variant="outline" size="lg">
-                                        Become a Volunteer Coach
-                                    </Button>
+
+                                    </Link>
+
+                                    <Link to='/volunteer'>
+                                        <Button variant="outline" size="lg">
+                                            Become a Volunteer Coach
+                                        </Button>
+                                    </Link>
+                                     
                                 </div>
                                 <div className="mt-6">
                                     <Button variant="ghost" size="lg" asChild>
