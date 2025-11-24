@@ -1,4 +1,6 @@
 import { useForm } from "react-hook-form";
+import { useEffect } from "react";
+import { useSearchParams } from "react-router-dom";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Button } from "@/components/ui/button";
@@ -16,6 +18,7 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
+
 
 const eventOptions = [
   "Pitch Night",
@@ -51,6 +54,17 @@ export default function EventRegistrationForm() {
       support: [],
     },
   });
+
+  const [params] = useSearchParams();
+  const mode = params.get("mode");
+  const eventName = params.get("event");
+
+  useEffect(() => {
+    if (eventName) form.setValue("eventSelection", eventName);
+    if (mode === "attend") form.setValue("pitchChoice", "Attend");
+    if (mode === "pitch") form.setValue("pitchChoice", "Pitch");
+  }, [eventName, mode ,form]);
+
 
   const navigate = useNavigate();
 
@@ -95,7 +109,7 @@ export default function EventRegistrationForm() {
 
       <Form {...form}>
         <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
-         
+
           <FormField
             name="eventSelection"
             control={form.control}
@@ -103,7 +117,9 @@ export default function EventRegistrationForm() {
               <FormItem>
                 <FormLabel>Select Event *</FormLabel>
                 <FormControl>
-                  <select {...field} className="w-full border p-2 rounded">
+                  <select {...field}
+                  disabled={!!eventName}
+                  className="w-full border p-2 rounded">
                     <option value="">-- Choose an event --</option>
                     {eventOptions.map((e) => (
                       <option key={e} value={e}>
@@ -146,7 +162,7 @@ export default function EventRegistrationForm() {
             />
           )}
 
-        
+
           <FormField
             name="fullName"
             control={form.control}
@@ -189,7 +205,7 @@ export default function EventRegistrationForm() {
             )}
           />
 
-       
+
           {form.watch("pitchChoice") === "Attend" && (
             <FormField
               name="organization"
@@ -205,7 +221,7 @@ export default function EventRegistrationForm() {
             />
           )}
 
-     
+
           {form.watch("pitchChoice") === "Pitch" && (
             <>
               <FormField
@@ -284,7 +300,7 @@ export default function EventRegistrationForm() {
             </>
           )}
 
-       
+
           <FormField
             name="howHeard"
             control={form.control}

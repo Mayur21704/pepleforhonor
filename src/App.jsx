@@ -83,6 +83,10 @@ const App = () => (
                     <Route path="/gallery" element={<Gallery />} />
                     <Route path="/contact" element={<ContactPage />} />
 
+                    <Route path="/event-registration" element={<PitchForm />} />
+
+                    
+
                     {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
                     <Route path="*" element={<NotFound />} />
 
