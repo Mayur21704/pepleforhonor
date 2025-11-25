@@ -44,7 +44,7 @@ const Header = () => {
                             </NavLink>
                         ))}
                         <Button className="bg-gradient-primary hover:bg-primary-hover">
-                            <Link to="/programs">
+                            <Link to="/join#ways-to-give"> {/* Yahan #ways-to-give add kiya */}
                                 Donate
                             </Link>
                         </Button>
@@ -77,7 +77,7 @@ const Header = () => {
                                 </NavLink>
                             ))}
                             <Button className="bg-gradient-primary hover:bg-primary-hover mt-4">
-                                <Link to="/programs">
+                                <Link to="/join#ways-to-give"> 
                                     Donate
                                 </Link>
                             </Button>

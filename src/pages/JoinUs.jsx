@@ -8,12 +8,30 @@ import { Label } from "@/components/ui/label";
 import { Heart, Users, DollarSign, ArrowRight, Mail, Phone, MapPin, ChevronLeft, ChevronRight, X } from "lucide-react";
 import UpcomingEvents from "@/components/UpcomingEvents";
 import Contact from "@/components/Contact";
-import { useState } from "react";
+import { useState  } from "react";
 import { Dialog, DialogContent } from "@/components/ui/dialog";
-import { Link } from "react-router-dom";
+import { Link , useLocation }  from "react-router-dom";
 import { useEffect } from "react";
 
 const JoinUs = () => {
+
+        const { hash } = useLocation();
+         useEffect(() => {
+      
+        if (hash) {
+           
+            setTimeout(() => {
+                const element = document.getElementById(hash.replace('#', ''));
+                if (element) {
+                    element.scrollIntoView({ behavior: 'smooth' });
+                }
+            }, 100);
+        } else {
+           
+            window.scrollTo(0, 0);
+        }
+    }, [hash]);
+
     const [formData, setFormData] = useState({
         email: '',
         name: '',
@@ -439,10 +457,38 @@ const JoinUs = () => {
                                     </div>
                                 </div>
 
-                                <Button className="bg-gradient-primary hover:bg-primary-hover" size="lg">
+                               
+                                      <Card className="bg-gradient-card border-0 shadow-medium">
+                                        
+                        <CardHeader>
+                           {/* <Button className="bg-gradient-primary hover:bg-primary-hover" size="lg">
                                     Join Our Mailing List
                                     <ArrowRight className="ml-2 h-5 w-5" />
-                                </Button>
+                                </Button> */}
+                        </CardHeader>
+
+
+                        <CardContent>
+                            <div className="relative w-full h-56 rounded-lg overflow-hidden bg-muted">
+                                <iframe
+                                    title="Signup form powered by Zeffy - Join Our Mailing List"
+                                    style={{
+                                        position: 'absolute',
+                                        border: 0,
+                                        top: 0,
+                                        left: 0,
+                                        bottom: 0,
+                                        right: 0,
+                                        width: '100%',
+                                        height: '100%'
+                                    }}
+                                    src="https://www.zeffy.com/en-CA/embed/newsletter-form/join-our-mailing-list-18"
+                                    allowTransparency="true"
+                                />
+                            </div>
+                        </CardContent>
+                    </Card>
+
                             </Card>
                         </div>
                     </div>
