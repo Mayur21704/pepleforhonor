@@ -87,8 +87,8 @@ const Programs = () => {
             title: "Coaching",
             icon: Target,
             href: "/programs/coaching",
-            description: "One-on-one support for career development (résumé, LinkedIn, computer literacy) or life & wellbeing (goal setting, time management, nutrition, healthy habits).",
-            paths: ["Career Development", "Life & Wellbeing"]
+            description: "One-on-one support for career development (résumé, LinkedIn, computer literacy) or  TIme management & Financial techniques (goal setting, time management, nutrition, healthy habits).",
+            paths: ["Career Development", " Time management & Financial techniques"]
         },
         {
             id: 2,

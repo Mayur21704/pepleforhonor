@@ -63,16 +63,16 @@ const About = () => {
                                 <h2 className="text-heading text-foreground mb-6">The Founder's Story</h2>
                                 <div className="space-y-4 text-muted-foreground">
                                     <p className="text-lg leading-relaxed">
-                                        Mr. Francis is a well-established businessman with a master's degree in engineering who made Canada his home years ago. As a newcomer, he learned firsthand how complex migration can be—navigating new systems, accents, workplace culture, and unfamiliar terrain. Those early experiences shaped a simple conviction: <strong className="text-foreground">no one should have to do it alone.</strong>
+                                        Mr. Francis is a well-established businessman with a master's degree in engineering who made Canada his home years ago. As a newcomer, he learned firsthand how complex migration can be navigating new systems, accents, workplace culture, and unfamiliar terrain. Those early experiences shaped a simple conviction: <strong className="text-foreground">no one should have to do it alone.</strong>
                                     </p>
                                     <p className="text-lg leading-relaxed">
                                         Seeing friends and neighbours face the same hurdles, Mr. Francis set out to build a community space where people, new immigrants in particular, could find practical support without judgment. That vision became People for Honor: a welcoming hub where newcomers access guidance, skills, and encouragement to move forward with confidence.
                                     </p>
                                     <p className="text-lg leading-relaxed">
-                                        For Mr. Francis, Canada is a home away from home—a place that invited him to contribute and belong. He believes true belonging comes from being empowered with knowledge, grounded in cultural pride, and committed to giving back. Under his leadership, People for Honor pairs hands-on programs with a culture of dignity: we listen first, remove barriers, and celebrate every milestone, from a first résumé to a first promotion.
+                                        For Mr. Francis, Canada is a home away from home a place that invited him to contribute and belong. He believes true belonging comes from being empowered with knowledge, grounded in cultural pride, and committed to giving back. Under his leadership, People for Honor pairs hands-on programs with a culture of dignity we listen first, remove barriers, and celebrate every milestone, from a first resume to a first promotion.
                                     </p>
                                     <p className="text-lg leading-relaxed">
-                                        Proudly Nigerian-Canadian, Mr. Francis measures success not just by individual outcomes but by what we build together—strong families, connected neighbourhoods, and opportunities that last. His aim is a living legacy: communities of belonging and fully empowered people who will lift the next generation, just as others once lifted him.
+                                        Proudly Nigerian-Canadian, Mr. Francis measures success not just by individual outcomes but by what we build together strong families, connected neighbourhoods, and opportunities that last. His aim is a living legacy communities of belonging and fully empowered people who will lift the next generation, just as others once lifted him.
                                     </p>
 
                                     <div className="mt-8 rounded-xl overflow-hidden shadow-medium">
@@ -118,13 +118,13 @@ const About = () => {
                 </section>
 
                 {/* Who We Are */}
-                <section className="py-20 bg-muted/30">
+                <section className=" bg-muted/30">
                     <div className="container mx-auto px-4">
                         <div className="max-w-4xl mx-auto">
                             <Card className="p-8 md:p-12 bg-gradient-card border-0 shadow-strong">
                                 <h2 className="text-heading text-foreground mb-6">Who We Are</h2>
                                 <p className="text-lg leading-relaxed text-muted-foreground mb-8">
-                                    At People for Honor, there's no judgment—only community lifting community. We serve women, men, and youth (Anglophone and Francophone) with culturally grounded workshops, coaching, and mentorship that spark confidence, protect mental well-being, and open doors to work, school, and community life in Canada.
+                                    At People for Honor, there's no judgment only community lifting community. We serve women, men, and youth (Anglophone and Francophone) with culturally grounded workshops, coaching, and mentorship that spark confidence, protect mental well-being, and open doors to work, school, and community life in Canada.
                                 </p>
                                 <p className="text-lg leading-relaxed text-muted-foreground mb-8">
                                     Our programs are built on the idea that we can <strong className="text-foreground">think big, belong fully, and give back.</strong>
@@ -153,7 +153,7 @@ const About = () => {
                 </section>
 
                 {/* Mission Statement */}
-                <section className="py-16">
+                <section className="">
                     <div className="container mx-auto px-4">
                         <div className="max-w-4xl mx-auto">
                             <Card className="p-8 md:p-12 bg-gradient-card border-0 shadow-medium">
@@ -191,7 +191,7 @@ const About = () => {
                 </section>
 
                 {/* Our Vision */}
-                <section className="py-20 bg-muted/30">
+                <section className=" bg-muted/30">
                     <div className="container mx-auto px-4">
                         <div className="max-w-4xl mx-auto">
                             <Card className="p-8 md:p-12 bg-gradient-card border-0 shadow-strong">
@@ -208,7 +208,7 @@ const About = () => {
                 </section>
 
                 {/* Who We Serve & What We Do */}
-                <section className="py-16">
+                <section className="">
                     <div className="container mx-auto px-4">
                         <div className="max-w-4xl mx-auto">
                             <Card className="p-8 md:p-12 bg-gradient-card border-0 shadow-medium">
@@ -242,7 +242,7 @@ const About = () => {
                 </section>
 
                 {/* Our Core Values */}
-                <section className="py-16">
+                <section className="">
                     <div className="container mx-auto px-4">
                         <div className="max-w-4xl mx-auto">
                             <Card className="p-8 md:p-12 bg-gradient-card border-0 shadow-medium">
@@ -303,7 +303,7 @@ const About = () => {
                 </section>
 
                 {/* Get Involved */}
-                <section className="py-20">
+                <section className="">
                     <div className="container mx-auto px-4">
                         <div className="max-w-4xl mx-auto">
                             <Card className="p-8 md:p-12 bg-gradient-card border-0 shadow-strong text-center">

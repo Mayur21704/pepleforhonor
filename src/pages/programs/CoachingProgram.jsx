@@ -83,7 +83,7 @@ const CoachingProgram = () => {
 
                 {/* Program Overview */}
                 <section className="py-16">
-                    <div className="container mx-auto px-4">
+                    <div className="container mx-auto px-4 ">
                         <div className="max-w-5xl mx-auto">
                             <div className="text-center mb-12">
                                 <h2 className="text-3xl font-bold text-foreground mb-4">Choose Your Coaching Path</h2>
@@ -92,13 +92,13 @@ const CoachingProgram = () => {
                                 </p>
                             </div>
 
-                            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
+                            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12  items-stretch  ">
                                 {/* Career Development */}
                                 <Card className="p-8 bg-gradient-card border-0 shadow-strong hover:shadow-strong transition-shadow">
                                     <div className="w-16 h-16 bg-gradient-primary rounded-full flex items-center justify-center mx-auto mb-6">
                                         <Briefcase className="h-8 w-8 text-primary-foreground" />
                                     </div>
-                                    <h3 className="text-2xl font-bold text-foreground text-center mb-4">Career Development</h3>
+                                    <h3 className="text-xl font-bold text-foreground text-center mb-4">Career Development</h3>
                                     <p className="text-muted-foreground text-center mb-6">
                                         Sharpen your professional skills and get job-ready support. You'll work one-on-one with a coach to:
                                     </p>
@@ -122,11 +122,11 @@ const CoachingProgram = () => {
                                 </Card>
 
                                 {/* Life & Wellbeing */}
-                                <Card className="p-8 bg-gradient-card border-0 shadow-strong hover:shadow-strong transition-shadow">
+                                <Card className="p-8 bg-gradient-card border-0 shadow-strong hover:shadow-strong transition-shadow  ">
                                     <div className="w-16 h-16 bg-gradient-primary rounded-full flex items-center justify-center mx-auto mb-6">
                                         <Heart className="h-8 w-8 text-primary-foreground" />
                                     </div>
-                                    <h3 className="text-2xl font-bold text-foreground text-center mb-4">Life & Wellbeing</h3>
+                                    <h3 className="text-xl font-bold text-foreground text-center mb-2 leading-tight ">Time management & Financial techniques</h3>
                                     <p className="text-muted-foreground text-center mb-6">
                                         Focus on balance, motivation, and everyday habits that help you thrive. Your coach will guide you through:
                                     </p>
@@ -140,7 +140,7 @@ const CoachingProgram = () => {
                                     </div>
                                     <Link to="/program-registration">
                                         <Button className="bg-gradient-primary hover:bg-primary-hover w-full" size="lg">
-                                            Apply for Life Coaching
+                                           TIme management & Financial techniques
                                             <ArrowRight className="ml-2 h-5 w-5" />
                                         </Button>
                                     </Link>

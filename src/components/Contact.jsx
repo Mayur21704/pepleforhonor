@@ -24,7 +24,7 @@ const Contact = () => {
         },
         {
             icon: MapPin,
-            title: "Mailing Address Only – programs are not delivered at this location",
+            title: "Mailing address:",
             details: "1505 laperrieve Ave Suite 506",
             description: "Ottawa, ON, K127T1"
         },
