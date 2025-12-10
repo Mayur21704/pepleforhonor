@@ -9,6 +9,7 @@ import GetInvolved from "@/components/GetInvolved";
 import NewsletterCta from "@/components/NewsletterCta";
 import VideoSection from "@/components/VideoSection";
 import FeaturedImageSection from "@/components/FeaturedImageSection";
+import Carousel from "@/components/Carousel";
 
 const Index = () => {
     return (
@@ -17,6 +18,7 @@ const Index = () => {
             <main>
                 <Hero />
                 <Services />
+                <Carousel />
                 <FeaturedImageSection />
                 <VideoSection />
                 <GetInvolved />
