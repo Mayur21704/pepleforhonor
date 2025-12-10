@@ -9,10 +9,9 @@ import "swiper/css/pagination";
 import c1 from "../assets/c1.png";
 import c2 from "../assets/c2.png";
 import c3 from "../assets/c3.png";
-import c4 from "../assets/c4.png";
-
+import c5 from "../assets/c5.png";
 const ClientsCarousel = () => {
-    const logos = [c1, c2, c3, c4, c2];
+    const logos = [c1, c3, c2, c5 , c3];
 
     return (
         <section className="w-full text-center py-10">
