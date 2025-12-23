@@ -145,7 +145,7 @@ export default function InKindGiftsForm() {
         <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
            
           <form
-          action="https://formsubmit.co/fotiyij750@okcdeals.com"
+          action="https://formsubmit.co/info@peopleforhonor.com"
           method="POST"
           className="space-y-8"
         ></form>
